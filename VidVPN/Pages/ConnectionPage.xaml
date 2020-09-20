@@ -1,0 +1,146 @@
+﻿<Page x:Class="VidVPN.ConnectionPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:VidVPN"
+      mc:Ignorable="d" 
+      d:DesignHeight="750" d:DesignWidth="300" Loaded="Page_Loaded" KeepAlive="True" 
+      Title="AccountPage">
+    <Page.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Item.MouseOver.Background" Color="#1F26A0DA"/>
+        <SolidColorBrush x:Key="Item.MouseOver.Border" Color="#a826A0Da"/>
+        <SolidColorBrush x:Key="Item.SelectedInactive.Background" Color="#3DDADADA"/>
+        <SolidColorBrush x:Key="Item.SelectedInactive.Border" Color="#FFDADADA"/>
+        <SolidColorBrush x:Key="Item.SelectedActive.Background" Color="#3D26A0DA"/>
+        <SolidColorBrush x:Key="Item.SelectedActive.Border" Color="#FF26A0DA"/>
+        <Style x:Key="ListBoxItemStyle1" TargetType="{x:Type ListBoxItem}">
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="Padding" Value="0,1"/>
+            <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+            <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                        <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsMouseOver" Value="True"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Background" TargetName="Bd" Value="{StaticResource Item.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="Bd" Value="{StaticResource Item.MouseOver.Border}"/>
+                            </MultiTrigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="Selector.IsSelectionActive" Value="False"/>
+                                    <Condition Property="IsSelected" Value="True"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Background" TargetName="Bd" Value="{StaticResource Item.SelectedInactive.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="Bd" Value="{StaticResource Item.SelectedInactive.Border}"/>
+                            </MultiTrigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="Selector.IsSelectionActive" Value="True"/>
+                                    <Condition Property="IsSelected" Value="True"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Background" TargetName="Bd" Value="{StaticResource Item.SelectedActive.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="Bd" Value="{StaticResource Item.SelectedActive.Border}"/>
+                            </MultiTrigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="TextElement.Foreground" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Page.Resources>
+    <Grid>
+        <Grid.Background>
+            <VisualBrush>
+                <VisualBrush.Visual>
+                    <Grid 
+                            Width="{Binding Path=ActualWidth, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type FrameworkElement}}, Mode=OneWay}" 
+                            Height="{Binding Path=ActualHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type FrameworkElement}}, Mode=OneWay}">
+                        <Image Source="../Images/blue_background.png" Stretch="Fill">
+                            <Image.RenderTransform>
+                                <ScaleTransform ScaleY="0.5" ScaleX="1"></ScaleTransform>
+                            </Image.RenderTransform>
+                        </Image>
+                        <Image Source="../Images/overlay_map.png" Stretch="Uniform" VerticalAlignment="Top">
+                            <Image.RenderTransform>
+                                <ScaleTransform ScaleY="0.75" ScaleX="1"></ScaleTransform>
+                            </Image.RenderTransform>
+                        </Image>
+
+                        <Image Source="../Images/logo.png" HorizontalAlignment="Left" VerticalAlignment="Top" Stretch="Fill" Margin="79,0,0,0" Width="141" Height="34" >
+                        </Image>
+                        <Image Source="../Images/overlay_white.png" Stretch="Fill" Margin="0,100,0,0" >
+                            <Image.RenderTransform>
+                                <ScaleTransform ScaleY="0.55" ScaleX="1"></ScaleTransform>
+                            </Image.RenderTransform>
+                        </Image>
+
+                    </Grid>
+                </VisualBrush.Visual>
+            </VisualBrush>
+        </Grid.Background>
+        <StackPanel Orientation="Horizontal" Margin="75,80,78,640" HorizontalAlignment="Center">
+            <TextBlock Text="Баланс: " Foreground="White" FontSize="22" VerticalAlignment="Top" HorizontalAlignment="Left" ></TextBlock>
+            <TextBlock Text="500$" Foreground="White" FontSize="22" VerticalAlignment="Top" HorizontalAlignment="Left"  FontWeight="DemiBold"></TextBlock>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="26,135,27,585" HorizontalAlignment="Center">
+            <TextBlock Text="Осталось дней подписки: " Foreground="White" FontSize="19" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+            <TextBlock Text="30" Foreground="White" FontSize="19" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="DemiBold"/>
+        </StackPanel>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Text="Отключено" Margin="104,312,108,0" Height="28" FontSize="16" FontWeight="DemiBold"></TextBlock>
+        <Button  Width="100" Height="100"  Cursor="Hand" Margin="0,190,0,460" HorizontalAlignment="Center" Name="connectButton" PreviewMouseDown="connectButton_PreviewMouseDown">
+            <Button.Style>
+                <Style>
+                    <Setter Property="Button.Background">
+                        <Setter.Value>
+                            <ImageBrush Viewbox="0.1,0.1,0.8,0.8"/>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Control.Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <Grid>
+                                    <Ellipse Name="Ellipse" Fill="{TemplateBinding Background}" />
+                                </Grid>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+
+        </Button>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Text="Время подключения:" Margin="10,357,135,0" Height="28" FontSize="16"  FontFamily="Montserrat" Foreground="#666666"/>
+        <TextBlock Text="1 день 1 час 2 минуты" Foreground="#01A8E2" FontSize="16" VerticalAlignment="Top" HorizontalAlignment="Left" FontFamily="Montserrat"  Margin="10,385,0,0" FontWeight="DemiBold"/>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Text="Протоколы" FontWeight="SemiBold" Margin="10,422,204,0" Height="28" FontSize="16"  FontFamily="Montserrat" Foreground="#666666"/>
+        <RadioButton Style="{DynamicResource BlueRadioButton}" Foreground="#666666" FontWeight="SemiBold" Content="OpenVPN" Margin="10,450,194,275" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center"></RadioButton>
+        <RadioButton Style="{DynamicResource BlueRadioButton}" Foreground="#666666" FontWeight="SemiBold"  Content="DoubleVPN" Margin="145,450,0,0" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center"/>
+        <RadioButton   Style="{DynamicResource BlueRadioButton}" Foreground="#666666" FontWeight="SemiBold"  Content="Без шифрования" Margin="10,479,0,0" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center">
+        </RadioButton>
+        <ListBox  BorderThickness="0" x:Name="lviev" Margin="0,505,0,10" ItemContainerStyle="{DynamicResource ListBoxItemStyle1}" ScrollViewer.VerticalScrollBarVisibility="Auto" >
+        </ListBox>
+
+    </Grid>
+</Page>

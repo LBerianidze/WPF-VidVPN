@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29326.143
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VidVPN", "VidVPN\VidVPN.csproj", "{F8FF0F24-1C96-45CD-8C88-51736F364E53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp2", "WpfApp2\WpfApp2.csproj", "{89003927-DFFF-49D6-9CB1-77AC084C6E88}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F8FF0F24-1C96-45CD-8C88-51736F364E53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8FF0F24-1C96-45CD-8C88-51736F364E53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8FF0F24-1C96-45CD-8C88-51736F364E53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8FF0F24-1C96-45CD-8C88-51736F364E53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89003927-DFFF-49D6-9CB1-77AC084C6E88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89003927-DFFF-49D6-9CB1-77AC084C6E88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89003927-DFFF-49D6-9CB1-77AC084C6E88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89003927-DFFF-49D6-9CB1-77AC084C6E88}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {492F972E-EA5C-468C-A8A9-4C315495169B}
+	EndGlobalSection
+EndGlobal

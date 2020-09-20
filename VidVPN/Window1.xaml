@@ -1,0 +1,655 @@
+﻿<Window x:Class="VidVPN.Window1" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:gf="http://wpfanimatedgif.codeplex.com" xmlns:gf1="http://wpfanimatedgif.codeplex.com" xmlns:local="clr-namespace:VidVPN"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:svgc="http://sharpvectors.codeplex.com/svgc/" Title="VidVPN" Width="600" Height="700" MinHeight="600" MaxWidth="600"
+        AllowsTransparency="True" Background="Transparent" Closed="Window_Closed" Closing="Window_Closing" Icon="vpn_icon.ico" Loaded="Window_Loaded" PreviewKeyDown="Window_KeyDown" SnapsToDevicePixels="True"
+        WindowStartupLocation="CenterScreen" WindowStyle="None" mc:Ignorable="d">
+    <Window.Resources>
+        <Style x:Key="Hatten">
+            <Setter Property="TextElement.FontFamily" Value="Resources/#HATTEN" />
+        </Style>
+        <SolidColorBrush x:Key="TabItem.Selected.Background" Color="#FFFFFF" />
+        <SolidColorBrush x:Key="TabItem.Selected.Border" Color="#ACACAC" />
+        <Style x:Key="TabControlStyle1" TargetType="{x:Type TabControl}">
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Background" Value="{StaticResource TabItem.Selected.Background}" />
+            <Setter Property="BorderBrush" Value="{StaticResource TabItem.Selected.Border}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabControl}">
+                        <Grid x:Name="templateRoot" ClipToBounds="true" KeyboardNavigation.TabNavigation="Local" SnapsToDevicePixels="true">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition x:Name="ColumnDefinition0" />
+                                <ColumnDefinition x:Name="ColumnDefinition1" Width="0" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition x:Name="RowDefinition0" Height="0" />
+                                <RowDefinition x:Name="RowDefinition1" Height="*" />
+                            </Grid.RowDefinitions>
+                            <TabPanel x:Name="headerPanel" Grid.Row="0" Grid.Column="0" Height="0" Margin="0" Panel.ZIndex="1" Background="Transparent" IsItemsHost="true" KeyboardNavigation.TabIndex="1" Visibility="Hidden" />
+                            <Border x:Name="contentPanel" Grid.Row="1" Grid.Column="0"
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="0" KeyboardNavigation.DirectionalNavigation="Contained" KeyboardNavigation.TabIndex="2" KeyboardNavigation.TabNavigation="Local">
+                                <ContentPresenter x:Name="PART_SelectedContentHost" Margin="0" ContentSource="SelectedContent"
+                                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="TabStripPlacement" Value="Bottom">
+                                <Setter TargetName="headerPanel" Property="Grid.Row" Value="1" />
+                                <Setter TargetName="contentPanel" Property="Grid.Row" Value="0" />
+                                <Setter TargetName="RowDefinition0" Property="Height" Value="0" />
+                                <Setter TargetName="RowDefinition1" Property="Height" Value="Auto" />
+                                <Setter TargetName="headerPanel" Property="Margin" Value="0" />
+                            </Trigger>
+                            <Trigger Property="TabStripPlacement" Value="Left">
+                                <Setter TargetName="headerPanel" Property="Grid.Row" Value="0" />
+                                <Setter TargetName="contentPanel" Property="Grid.Row" Value="0" />
+                                <Setter TargetName="headerPanel" Property="Grid.Column" Value="0" />
+                                <Setter TargetName="contentPanel" Property="Grid.Column" Value="1" />
+                                <Setter TargetName="ColumnDefinition0" Property="Width" Value="Auto" />
+                                <Setter TargetName="ColumnDefinition1" Property="Width" Value="*" />
+                                <Setter TargetName="RowDefinition0" Property="Height" Value="0" />
+                                <Setter TargetName="RowDefinition1" Property="Height" Value="0" />
+                                <Setter TargetName="headerPanel" Property="Margin" Value="0" />
+                            </Trigger>
+                            <Trigger Property="TabStripPlacement" Value="Right">
+                                <Setter TargetName="headerPanel" Property="Grid.Row" Value="0" />
+                                <Setter TargetName="contentPanel" Property="Grid.Row" Value="0" />
+                                <Setter TargetName="headerPanel" Property="Grid.Column" Value="1" />
+                                <Setter TargetName="contentPanel" Property="Grid.Column" Value="0" />
+                                <Setter TargetName="ColumnDefinition0" Property="Width" Value="*" />
+                                <Setter TargetName="ColumnDefinition1" Property="Width" Value="Auto" />
+                                <Setter TargetName="RowDefinition0" Property="Height" Value="*" />
+                                <Setter TargetName="RowDefinition1" Property="Height" Value="0" />
+                                <Setter TargetName="headerPanel" Property="Margin" Value="0,2,2,2" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter TargetName="templateRoot" Property="TextElement.Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" SnapsToDevicePixels="true"
+                                   Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"
+                                   StrokeDashArray="1 2" StrokeThickness="1" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="{x:Type ListViewItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListViewItem}">
+                        <Border x:Name="Bd"
+                                Padding="{TemplateBinding Padding}"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                SnapsToDevicePixels="true">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="ListViewItemSelectedColor1">#01A8E2</SolidColorBrush>
+        <SolidColorBrush x:Key="ListViewItemSelectedColor2">Black</SolidColorBrush>
+        <SolidColorBrush x:Key="ListViewItemSelectedColor3">Black</SolidColorBrush>
+        <SolidColorBrush x:Key="ListViewItemSelectedColor4">Black</SolidColorBrush>
+        <Style x:Key="WindowButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ButtonBase}">
+                        <Border x:Name="Chrome" Margin="0"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                SnapsToDevicePixels="True">
+                            <ContentPresenter Margin="{TemplateBinding Padding}"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              Content="{TemplateBinding Content}"
+                                              ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              RecognizesAccessKey="True"
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="FontFamily" Value="Webdings" />
+            <Setter Property="FontSize" Value="13.333" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="Margin" Value="0,2,3,0" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="Gray" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid Margin="10">
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15" Direction="-90" Opacity="0.45" RenderingBias="Quality" ShadowDepth="2" />
+        </Grid.Effect>
+        <Grid Height="20" VerticalAlignment="Top" Background="#F1F1F1">
+            <Grid Name="resizerTop" Height="3" VerticalAlignment="Top" Background="#F1F1F1">
+                <Grid.Style>
+                    <Style TargetType="Grid">
+                        <Setter Property="Cursor" Value="SizeNS" />
+                    </Style>
+                </Grid.Style>
+            </Grid>
+            <Grid Margin="0,3,0,0" Background="#F1F1F1" MouseLeftButtonDown="WindowsDragGrid_OnMouseLeftButtonDown" />
+            <Button Name="closeButton" Width="21"  HorizontalAlignment="Right" Click="CloseButton_Click" PreviewMouseLeftButtonDown="CloseButton_MouseEnter" PreviewMouseLeftButtonUp="CloseButton_MouseLeave">
+                <Path x:Name="closeButtonPath" Data="M12 1L1 12 M1 1L12 12" Stroke="#ABABAB" StrokeThickness="1" >
+                    <Path.LayoutTransform>
+                        <ScaleTransform ScaleX="0.8" ScaleY="0.8"></ScaleTransform>
+                    </Path.LayoutTransform>
+                </Path>
+                <Button.Style>
+                    <Style BasedOn="{StaticResource WindowButtonStyle}" TargetType="Button">
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#E0E0E0" />
+                            </Trigger>
+                        </Style.Triggers>
+                        <Style.Setters>
+                            <Setter Property="BorderThickness" Value="0" />
+                        </Style.Setters>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button Width="17" Height="20" Margin="0,0,22,0" HorizontalAlignment="Right" VerticalAlignment="Top" Click="MinimizeButton_Click">
+                <Path Data="M 0.5 4.5 L 13.5 4.5" Stroke="#ABABAB" StrokeThickness="1">
+                    <Path.RenderTransform>
+                        <ScaleTransform ScaleX="0.9"></ScaleTransform>
+                    </Path.RenderTransform>
+                </Path>
+                <Button.Style>
+                    <Style BasedOn="{StaticResource WindowButtonStyle}" TargetType="Button">
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#E0E0E0" />
+                            </Trigger>
+                        </Style.Triggers>
+                        <Style.Setters>
+                            <Setter Property="BorderThickness" Value="0" />
+                        </Style.Setters>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </Grid>
+        <Grid Name="loadingGrid" Margin="0,20,0,0" Background="#01a8e2">
+            <Image Margin="89,183,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Source="Images/big_logo.png" Stretch="None" StretchDirection="UpOnly" />
+            <Grid Margin="105,384,-105,-384">
+                <Grid.RenderTransform>
+                    <ScaleTransform ScaleX="0.25" ScaleY="0.25" />
+                </Grid.RenderTransform>
+                <Image VerticalAlignment="Top" gf1:ImageBehavior.AnimateInDesignMode="True" gf1:ImageBehavior.AnimatedSource="Images/fon.gif" />
+            </Grid>
+        </Grid>
+        <Grid Name="navigationDrawer" Margin="0,20,0,0" Visibility="Visible">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Name="col1" Width="170" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" ClipToBounds="True" ColumnSpan="1" SnapsToDevicePixels="True">
+                <ListView Name="navigationPanelListView" Margin="0,-4,0,0" BorderThickness="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="Selector_OnSelectionChanged">
+                    <ListViewItem Margin="0,15,0,0">
+                        <StackPanel Orientation="Horizontal">
+                            <Path Data="M17.7318 3.44471L15.6847 5.49176C16.9287 6.24081 17.9581 7.2986 18.6729 8.56257C19.3877 9.82654 19.7638 11.2538 19.7647 12.7059C19.7647 17.3788 15.9671 21.1765 11.2941 21.1765C6.62118 21.1765 2.82353 17.3788 2.82353 12.7059C2.82353 9.64235 4.46118 6.97412 6.88942 5.47765L4.85648 3.44471C3.35704 4.47923 2.13154 5.86274 1.28552 7.47606C0.439509 9.08939 -0.00166167 10.8842 4.70311e-06 12.7059C4.70311e-06 18.9459 5.05412 24 11.2941 24C17.5341 24 22.5882 18.9459 22.5882 12.7059C22.5882 8.86588 20.6682 5.47765 17.7318 3.44471ZM12.7059 0H9.88236V14.1176H12.7059" Fill="{DynamicResource ListViewItemSelectedColor1}">
+                                <Path.RenderTransform>
+                                    <ScaleTransform ScaleX="0.9" ScaleY="0.9" />
+                                </Path.RenderTransform>
+                            </Path>
+                            <TextBlock Margin="5,0,0,0" VerticalAlignment="Center" FontFamily="SEGUI UI" FontSize="15" FontWeight="DemiBold"
+                                       Foreground="{DynamicResource ListViewItemSelectedColor1}">
+                                Подключение
+                            </TextBlock>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Margin="0,15,0,0">
+                        <StackPanel Orientation="Horizontal">
+                            <Path Data="M20.5918 13.17C20.6368 12.795 20.6668 12.405 20.6668 12C20.6668 11.595 20.6368 11.205 20.5768 10.83L23.1118 8.85002C23.2206 8.75892 23.2948 8.63327 23.3221 8.49405C23.3494 8.35483 23.3281 8.21045 23.2618 8.08502L20.8618 3.93003C20.7118 3.66003 20.3968 3.57003 20.1268 3.66003L17.1418 4.86003C16.522 4.38155 15.8409 3.98807 15.1168 3.69003L14.6668 0.510038C14.6451 0.366966 14.5725 0.236556 14.4622 0.142836C14.352 0.0491164 14.2115 -0.00159745 14.0668 3.83726e-05H9.26685C9.12378 -0.00141346 8.98516 0.0497252 8.87732 0.143743C8.76948 0.237761 8.69991 0.368111 8.68185 0.510038L8.23185 3.69003C7.50895 3.99054 6.82824 4.38384 6.20685 4.86003L3.22185 3.66003C3.08744 3.60821 2.93877 3.60703 2.80354 3.6567C2.66832 3.70638 2.55576 3.80352 2.48686 3.93003L0.0868604 8.08502C0.0126363 8.20846 -0.0131146 8.35506 0.0145994 8.4964C0.0423134 8.63774 0.121518 8.76376 0.23686 8.85002L2.77186 10.83C2.71186 11.205 2.66686 11.61 2.66686 12C2.66686 12.39 2.69686 12.795 2.75686 13.17L0.22186 15.15C0.113105 15.2411 0.0388847 15.3668 0.0115864 15.506C-0.015712 15.6452 0.00556286 15.7896 0.0718603 15.915L2.47186 20.07C2.62186 20.34 2.93686 20.43 3.20685 20.34L6.19185 19.14C6.81171 19.6185 7.49273 20.012 8.21685 20.31L8.66685 23.49C8.72685 23.79 8.96685 24 9.26685 24H14.0668C14.3668 24 14.6218 23.79 14.6518 23.49L15.1018 20.31C15.8247 20.0095 16.5054 19.6162 17.1268 19.14L20.1118 20.34C20.3818 20.445 20.6968 20.34 20.8468 20.07L23.2468 15.915C23.321 15.7916 23.3468 15.645 23.3191 15.5036C23.2914 15.3623 23.2122 15.2363 23.0968 15.15L20.5918 13.17ZM11.6668 16.5C9.19185 16.5 7.16685 14.475 7.16685 12C7.16685 9.52502 9.19185 7.50003 11.6668 7.50003C14.1418 7.50003 16.1668 9.52502 16.1668 12C16.1668 14.475 14.1418 16.5 11.6668 16.5Z" Fill="{DynamicResource ListViewItemSelectedColor2}">
+                                <Path.RenderTransform>
+                                    <ScaleTransform ScaleX="0.9" ScaleY="0.9" />
+                                </Path.RenderTransform>
+                            </Path>
+                            <TextBlock Margin="5,0,0,0" VerticalAlignment="Center" FontFamily="SEGUI UI" FontSize="15" FontWeight="DemiBold"
+                                       Foreground="{DynamicResource ListViewItemSelectedColor2}">
+                                Настройки
+                            </TextBlock>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Margin="0,15,0,0">
+                        <StackPanel Orientation="Horizontal">
+                            <Path Data="M12 0C13.5913 0 15.1174 0.632141 16.2426 1.75736C17.3679 2.88258 18 4.4087 18 6C18 7.5913 17.3679 9.11742 16.2426 10.2426C15.1174 11.3679 13.5913 12 12 12C10.4087 12 8.88258 11.3679 7.75736 10.2426C6.63214 9.11742 6 7.5913 6 6C6 4.4087 6.63214 2.88258 7.75736 1.75736C8.88258 0.632141 10.4087 0 12 0ZM12 15C18.627 15 24 17.685 24 21V24H0V21C0 17.685 5.373 15 12 15Z" Fill="{DynamicResource ListViewItemSelectedColor3}">
+                                <Path.RenderTransform>
+                                    <ScaleTransform ScaleX="0.9" ScaleY="0.9" />
+                                </Path.RenderTransform>
+                            </Path>
+                            <TextBlock Margin="5,0,0,0" VerticalAlignment="Center" FontFamily="SEGUI UI" FontSize="15" FontWeight="DemiBold"
+                                       Foreground="{DynamicResource ListViewItemSelectedColor3}">
+                                Аккаунт
+                            </TextBlock>
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+            </Grid>
+            <Grid Background="White" Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="17*" />
+                    <ColumnDefinition Width="3*" />
+                </Grid.ColumnDefinitions>
+                <TabControl Name="pagesTabControl" Grid.ColumnSpan="2" Width="300" Margin="0,0,0,5" HorizontalAlignment="Left" SelectedIndex="0" SelectionChanged="pagesTabControl_SelectionChanged"
+                            Style="{DynamicResource TabControlStyle1}">
+                    <TabItem Name="cont" Header="TabItem">
+                        <Frame>
+                            <Frame.Content>
+                                <Page>
+                                    <Page.Resources>
+                                        <Style x:Key="FocusVisual">
+                                            <Setter Property="Control.Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate>
+                                                        <Rectangle Margin="2" SnapsToDevicePixels="true"
+                                                                   Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"
+                                                                   StrokeDashArray="1 2" StrokeThickness="1" />
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                        <SolidColorBrush x:Key="Item.MouseOver.Background" Color="#1F26A0DA" />
+                                        <SolidColorBrush x:Key="Item.MouseOver.Border" Color="#a826A0Da" />
+                                        <SolidColorBrush x:Key="Item.SelectedInactive.Background" Color="#3DDADADA" />
+                                        <SolidColorBrush x:Key="Item.SelectedInactive.Border" Color="#FFDADADA" />
+                                        <SolidColorBrush x:Key="Item.SelectedActive.Background" Color="#3D26A0DA" />
+                                        <SolidColorBrush x:Key="Item.SelectedActive.Border" Color="#FF26A0DA" />
+                                        <Style x:Key="ListBoxItemStyle1" TargetType="{x:Type ListBoxItem}">
+                                            <Setter Property="SnapsToDevicePixels" Value="True" />
+                                            <Setter Property="Padding" Value="0,1" />
+                                            <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
+                                            <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
+                                            <Setter Property="Background" Value="Transparent" />
+                                            <Setter Property="BorderBrush" Value="Transparent" />
+                                            <Setter Property="BorderThickness" Value="1" />
+                                            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
+                                            <Setter Property="Width" Value="260" />
+                                            <Setter Property="HorizontalAlignment" Value="Left" />
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                                                        <Border x:Name="Bd"
+                                                                Padding="{TemplateBinding Padding}"
+                                                                Background="{TemplateBinding Background}"
+                                                                BorderBrush="{TemplateBinding BorderBrush}"
+                                                                BorderThickness="{TemplateBinding BorderThickness}"
+                                                                SnapsToDevicePixels="true">
+                                                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                                        </Border>
+                                                        <ControlTemplate.Triggers>
+                                                            <MultiTrigger>
+                                                                <MultiTrigger.Conditions>
+                                                                    <Condition Property="IsMouseOver" Value="True" />
+                                                                </MultiTrigger.Conditions>
+                                                                <Setter TargetName="Bd" Property="Background" Value="{StaticResource Item.MouseOver.Background}" />
+                                                                <Setter TargetName="Bd" Property="BorderBrush" Value="{StaticResource Item.MouseOver.Border}" />
+                                                            </MultiTrigger>
+                                                            <MultiTrigger>
+                                                                <MultiTrigger.Conditions>
+                                                                    <Condition Property="Selector.IsSelectionActive" Value="False" />
+                                                                    <Condition Property="IsSelected" Value="True" />
+                                                                </MultiTrigger.Conditions>
+                                                                <Setter TargetName="Bd" Property="Background" Value="{StaticResource Item.SelectedInactive.Background}" />
+                                                                <Setter TargetName="Bd" Property="BorderBrush" Value="{StaticResource Item.SelectedInactive.Border}" />
+                                                            </MultiTrigger>
+                                                            <MultiTrigger>
+                                                                <MultiTrigger.Conditions>
+                                                                    <Condition Property="Selector.IsSelectionActive" Value="True" />
+                                                                    <Condition Property="IsSelected" Value="True" />
+                                                                </MultiTrigger.Conditions>
+                                                                <Setter TargetName="Bd" Property="Background" Value="{StaticResource Item.SelectedActive.Background}" />
+                                                                <Setter TargetName="Bd" Property="BorderBrush" Value="{StaticResource Item.SelectedActive.Border}" />
+                                                            </MultiTrigger>
+                                                            <Trigger Property="IsEnabled" Value="False">
+                                                                <Setter TargetName="Bd" Property="TextElement.Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+                                                            </Trigger>
+                                                        </ControlTemplate.Triggers>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </Page.Resources>
+                                    <Grid>
+                                        <Grid Background="White">
+                                            <Image Source="Images/blue_background.png" Stretch="None" VerticalAlignment="Top">
+                                                <Image.RenderTransform>
+                                                    <ScaleTransform ScaleX="1" ScaleY="0.5" />
+                                                </Image.RenderTransform>
+                                            </Image>
+                                            <Image VerticalAlignment="Top" Source="Images/overlay_map.png" Stretch="Uniform">
+                                                <Image.LayoutTransform>
+                                                    <ScaleTransform ScaleX="1" ScaleY="1" />
+                                                </Image.LayoutTransform>
+                                            </Image>
+                                            <Image Margin="0,5,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Source="Images/logo3.png" Stretch="None" />
+                                            <Image Margin="0,105,0,0" VerticalAlignment="Top" Source="Images/Wave.png"   />
+                                        </Grid>
+                                        <Button Margin="10,10"  Width="30" HorizontalAlignment="Left" VerticalAlignment="Top" Click="OptionsButton_OnClick">
+                                            <Image Width="24" Source="Images/settings.png" />
+                                            <Button.Style>
+                                                <Style>
+                                                    <Setter Property="Control.Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="{x:Type Control}">
+                                                                <Grid Margin="3,2">
+                                                                    <ContentPresenter Content="{Binding Path=Content, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}" />
+                                                                </Grid>
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </Button.Style>
+                                        </Button>
+                                        <StackPanel Margin="0,56,0,0" HorizontalAlignment="Center" Orientation="Horizontal">
+                                            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15" Foreground="White" LineHeight="15" Text="Баланс: " />
+                                            <TextBlock x:Name="balanceLabel" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15" FontWeight="SemiBold" Foreground="White" LineHeight="15" Text="500$" />
+                                        </StackPanel>
+                                        <StackPanel Margin="0,79,0,0" HorizontalAlignment="Center" Orientation="Horizontal">
+                                            <TextBlock x:Name="subscriptionLeftLabelTextBlock" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15" Foreground="White" Text="Осталось дней подписки: " />
+                                            <TextBlock Name="subscriptionLeftContentTextBlock" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15" FontWeight="SemiBold" Foreground="White" Text="30" />
+                                        </StackPanel>
+                                        <Button x:Name="connectButton" Height="82" Margin="0,115,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Transparent" Cursor="Hand" PreviewMouseDown="ConnectButton_PreviewMouseDown"
+                                                Style="{DynamicResource ImageRoundButton}">
+                                            <Ellipse Width="80" Height="80">
+                                                <Ellipse.Fill>
+                                                    <VisualBrush>
+                                                        <VisualBrush.Visual>
+                                                            <svgc:SvgViewbox x:Name="connectButtonImage" Source="Images/disconnected1.svg" Stretch="Uniform" />
+                                                        </VisualBrush.Visual>
+                                                    </VisualBrush>
+                                                </Ellipse.Fill>
+                                            </Ellipse>
+                                        </Button>
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto" />
+                                                <RowDefinition Height="*" />
+                                            </Grid.RowDefinitions>
+                                            <StackPanel Grid.Row="0" Margin="0,210,0,0" HorizontalAlignment="Center" VerticalAlignment="Top">
+                                                <TextBlock  FontFamily="Montserrat" x:Name="statusLabel" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="15" FontWeight="DemiBold" Foreground="#666666" Text="Отключено" />
+                                                <Border x:Name="ConnectedServerInfoContainerBorder" Height="0" Margin="10,10,5,0" Padding="10,5,10,10" BorderBrush="#EFEFEF" BorderThickness="1" CornerRadius="4" MouseDown="Border_MouseDown"
+                                                        Visibility="Collapsed">
+                                                    <StackPanel x:Name="ConnectedServerInfoContainer" HorizontalAlignment="Center" Orientation="Horizontal">
+                                                        <Image  Name="connectedServerImage" Width="40" Height="29" HorizontalAlignment="Center" VerticalAlignment="Center" Source="Flags\Netherlands.png" />
+                                                        <TextBlock FontFamily="Montserrat" Name="connectedServerName" Margin="10,5,0,0" VerticalAlignment="Center" FontSize="14" FontWeight="DemiBold" Foreground="#666666" LineHeight="17" Text="Netherlands - The Nague" />
+                                                    </StackPanel>
+                                                    <Border.Style>
+                                                        <Style TargetType="Border">
+                                                            <Style.Triggers>
+                                                                <Trigger Property="Visibility" Value="Visible">
+                                                                    <Trigger.EnterActions>
+                                                                        <BeginStoryboard>
+                                                                            <Storyboard>
+                                                                                <DoubleAnimation Storyboard.TargetProperty="Height" From="0" To="46" Duration="0:0:0.25" />
+                                                                            </Storyboard>
+                                                                        </BeginStoryboard>
+                                                                    </Trigger.EnterActions>
+                                                                </Trigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </Border.Style>
+                                                </Border>
+                                                <StackPanel Name="connectedIpContainer" Margin="10,10,0,0">
+                                                    <Grid>
+                                                        <TextBlock x:Name="connectedTmeLabel" HorizontalAlignment="Left" FontFamily="Montserrat" FontSize="13" Foreground="#666666" Text="IP-адрес сервера:" />
+                                                        <TextBlock x:Name="radLabel3" Margin="0,0,3,0" HorizontalAlignment="Right" FontFamily="Montserrat" FontSize="13" FontWeight="SemiBold" Foreground="#01A8E2" LineHeight="15" LineStackingStrategy="MaxHeight"
+                                                                   Text="129.75.11.220" />
+                                                    </Grid>
+                                                </StackPanel>
+
+                                                <StackPanel Name="connectedTimeContainer" Margin="10,8,0,0">
+                                                    <Grid>
+                                                        <TextBlock x:Name="connectedTimeLabel" FontFamily="Montserrat" FontSize="13" Foreground="#666666" Text="Время подключения:" />
+                                                        <TextBlock x:Name="connectedTime" Margin="0,0,3,0" HorizontalAlignment="Right" FontFamily="Montserrat" FontSize="13" FontWeight="DemiBold" Foreground="#01A8E2" Text="1 час 2 минуты" />
+                                                    </Grid>
+                                                </StackPanel>
+
+                                                <TextBlock Height="28" Margin="10,8,180,0" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Montserrat" FontSize="15" FontWeight="SemiBold" Foreground="#666666" Text="Протоколы" />
+                                                <WrapPanel Margin="10,-2,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal">
+                                                    <RadioButton x:Name="openVPNRadioButton" Margin="0,0,0,0" HorizontalAlignment="Left" FontFamily="Montserrat" VerticalContentAlignment="Center" Checked="OpenVPNRadioButton_Checked" Content="OpenVPN" FontSize="14" FontWeight="SemiBold"
+                                                                 Foreground="#666666" IsChecked="True"
+                                                                 Style="{DynamicResource BlueRadioButton}" />
+                                                    <RadioButton x:Name="doubleVPNRadioButton" Margin="25,0,0,0" FontFamily="Montserrat" HorizontalAlignment="Right" VerticalContentAlignment="Center" Checked="OpenVPNRadioButton_Checked" Content="DoubleVPN" FontSize="14"
+                                                                 FontWeight="SemiBold" Foreground="#666666"
+                                                                 Style="{DynamicResource BlueRadioButton}" />
+                                                    <RadioButton x:Name="withoutEnctryptionVPNRadioButton" FontFamily="Montserrat" Margin="0,10,0,0" VerticalContentAlignment="Center" Checked="OpenVPNRadioButton_Checked" Content="Без шифрования" FontSize="14" FontWeight="SemiBold"
+                                                                 Foreground="#666666"
+                                                                 Style="{DynamicResource BlueRadioButton}" />
+                                                    <Image Width="12" Margin="1,10" Source="Images/info.ico"
+                                                           ToolTip="Данный вид подключения предоставляется без AES-256 \r\nшифрования и неограничен по трафику,используется для \r\nторрентов, просмотра фильмов или других медиа ресуров" />
+                                                </WrapPanel>
+                                            </StackPanel>
+                                            <ListBox x:Name="proxyListBox" Grid.Row="1" Height="auto" Margin="15,10,0,0" VerticalAlignment="Top" BorderThickness="0"
+                                                     ItemContainerStyle="{DynamicResource ListBoxItemStyle1}"
+                                                     ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionChanged="proxyListBox_SelectionChanged" PreviewMouseDoubleClick="proxyListBox_PreviewMouseDoubleClick" />
+                                        </Grid>
+                                    </Grid>
+                                </Page>
+                            </Frame.Content>
+                        </Frame>
+                    </TabItem>
+                    <TabItem Header="TabItem">
+                        <Frame x:Name="frame2">
+                            <Frame.Content>
+                                <Page>
+                                    <Grid>
+                                        <Grid Width="300" Height="46" Margin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#01A8E2" MouseLeftButtonDown="WindowsDragGrid_OnMouseLeftButtonDown" />
+                                        <Button Width="30" Margin="8,8,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Background="Red" Click="ClosePageButton_Click">
+                                            <Image Width="24" Source="Images/close_page_button.png" />
+                                            <Button.Style>
+                                                <Style>
+                                                    <Setter Property="Control.Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="{x:Type Control}">
+                                                                <Grid Margin="3,2">
+                                                                    <ContentPresenter Content="{Binding Path=Content, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}" />
+                                                                </Grid>
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </Button.Style>
+                                        </Button>
+                                        <TextBlock Margin="42,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18" Foreground="White" Text="Настройки" />
+                                        <Grid Height="200" Margin="0,46,0,0" VerticalAlignment="Top">
+                                            <TextBlock Margin="20,15,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" Foreground="#666666">
+                                                Приложение
+                                            </TextBlock>
+                                            <CheckBox x:Name="autoStartUpCheckBox" Margin="20,35,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Запускать программу при запуске Windows" IsChecked="True"
+                                                      Style="{DynamicResource BlueCheckBox}" />
+                                            <CheckBox x:Name="rememberMeCheckBox" Margin="20,60,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Запомнить меня" IsChecked="True"
+                                                      Style="{DynamicResource BlueCheckBox}" />
+                                            <CheckBox x:Name="useTrayCheckBox" Margin="20,85,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" IsChecked="True"
+                                                      Style="{DynamicResource BlueCheckBox}">
+                                                <TextBlock TextWrapping="Wrap">Не сворачивать приложение в трей при закрытии</TextBlock>
+                                            </CheckBox>
+                                            <CheckBox x:Name="autoConnectOnStartUp" Margin="20,120,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" IsChecked="True"
+                                                      Style="{DynamicResource BlueCheckBox}">
+                                                <TextBlock TextWrapping="Wrap">Подключаться автоматически после запуска приложения</TextBlock>
+                                            </CheckBox>
+                                        </Grid>
+                                        <Grid Height="80" Margin="0,190,0,0" VerticalAlignment="Top">
+                                            <TextBlock Margin="20,15,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" Foreground="#666666" Text="Обновление" />
+                                            <TextBlock Margin="20,35,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Montserrat" FontSize="16" FontWeight="SemiBold" Foreground="#333333" Text="Текущая версия" />
+                                            <TextBlock Name="radLabel25" Margin="250,35,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Montserrat" FontSize="16" FontWeight="SemiBold" Foreground="#333333" Text="v1.51" />
+                                            <TextBlock Margin="20,58,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Montserrat" FontSize="16" FontWeight="SemiBold" Foreground="#333333" Text="Последняя версия" />
+                                            <TextBlock Name="radLabel26" Margin="250,58,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Montserrat" FontSize="16" FontWeight="SemiBold" Foreground="#333333" Text="v1.53" />
+                                        </Grid>
+                                        <StackPanel Margin="0,280,0,0" HorizontalAlignment="Center" VerticalAlignment="Top">
+                                            <Button Name="updateButton" Width="235" Height="40" Margin="0,0,0,10" Background="#01A8E2" Click="UpdateApplicationButton_Click" Content="Обновить приложение" FontSize="14" FontWeight="SemiBold"
+                                                    Foreground="#FFFFFF">
+                                                <Button.Style>
+                                                    <Style TargetType="Button">
+                                                        <Setter Property="Control.Template">
+                                                            <Setter.Value>
+                                                                <ControlTemplate TargetType="{x:Type Control}">
+                                                                    <Grid>
+                                                                        <Border Background="{TemplateBinding Background}"
+                                                                                BorderBrush="#666666" BorderThickness="0" CornerRadius="5">
+                                                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                                                              Content="{Binding Path=Content, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}" />
+                                                                        </Border>
+                                                                    </Grid>
+                                                                </ControlTemplate>
+                                                            </Setter.Value>
+                                                        </Setter>
+                                                        <Style.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter Property="Cursor" Value="Hand" />
+                                                            </Trigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Button.Style>
+                                            </Button>
+                                            <Button Width="235" Height="40" Background="#99DA3E" Content="Сохранить изменения" FontSize="14" FontWeight="SemiBold" Foreground="#FFFFFF" PreviewMouseLeftButtonDown="SaveSettingsButton_Click">
+                                                <Button.Style>
+                                                    <Style TargetType="Button">
+                                                        <Setter Property="Control.Template">
+                                                            <Setter.Value>
+                                                                <ControlTemplate TargetType="{x:Type Control}">
+                                                                    <Grid>
+                                                                        <Border Background="{TemplateBinding Background}"
+                                                                                BorderBrush="#666666" BorderThickness="0" CornerRadius="5">
+                                                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                                                              Content="{Binding Path=Content, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}" />
+                                                                        </Border>
+                                                                    </Grid>
+                                                                </ControlTemplate>
+                                                            </Setter.Value>
+                                                        </Setter>
+                                                        <Style.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter Property="Cursor" Value="Hand" />
+                                                            </Trigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Button.Style>
+                                            </Button>
+                                        </StackPanel>
+                                    </Grid>
+                                </Page>
+                            </Frame.Content>
+                        </Frame>
+                    </TabItem>
+                    <TabItem Name="f2" Header="TabItem">
+                        <Frame x:Name="frame3">
+                            <Frame.Content>
+                                <Page>
+                                    <Grid>
+                                        <Grid Width="300" Height="46" Margin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#01A8E2" MouseLeftButtonDown="WindowsDragGrid_OnMouseLeftButtonDown" />
+                                        <Button Width="30" Margin="8,8,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Background="Red" Click="ClosePageButton_Click">
+                                            <Image Width="24" Source="Images/close_page_button.png" />
+                                            <Button.Style>
+                                                <Style>
+                                                    <Setter Property="Control.Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="{x:Type Control}">
+                                                                <Grid Margin="3,2">
+                                                                    <ContentPresenter Content="{Binding Path=Content, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}" />
+                                                                </Grid>
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </Button.Style>
+                                        </Button>
+                                        <TextBlock Margin="42,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18" Foreground="White" Text="Аккаунт" />
+
+                                        <Grid Height="80" Margin="0,46,0,0" VerticalAlignment="Top">
+                                            <TextBlock Margin="20,15,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" Foreground="#666666">
+                                                Подписка
+                                            </TextBlock>
+                                            <TextBlock Margin="20,37,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Montserrat" FontSize="16" FontWeight="SemiBold" Foreground="#333333">
+                                                Действительна до:
+                                            </TextBlock>
+                                            <TextBlock x:Name="activeTill" Margin="20,60,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Montserrat" FontSize="16" FontWeight="SemiBold" Foreground="#01A8E2">
+                                                14.06.2020
+                                            </TextBlock>
+                                        </Grid>
+                                        <Grid Height="80" Margin="0,140,0,0" VerticalAlignment="Top">
+                                            <TextBlock Margin="20,15,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" Foreground="#666666">
+                                                Аккаунт
+                                            </TextBlock>
+                                            <TextBlock x:Name="accountLogin" Margin="20,35,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Montserrat" FontSize="16" FontWeight="SemiBold" Foreground="#333333">
+                                                example@yandex.ru
+                                            </TextBlock>
+                                            <TextBlock Margin="20,58,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Montserrat" FontSize="16" FontWeight="SemiBold" Foreground="#01A8E2"
+                                                       PreviewMouseLeftButtonDown="TextBlock_PreviewMouseLeftButtonDown" TextDecorations="underline">
+                                                Изменить пароль
+                                            </TextBlock>
+                                        </Grid>
+                                        <Button Width="235" Height="40" Margin="0,235,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Background="White" FontSize="14" FontWeight="SemiBold" Foreground="#666666"
+                                                PreviewMouseLeftButtonDown="LeaveAccountButton_Click">
+                                            Выйти из аккаунта
+                                            <Button.Style>
+                                                <Style TargetType="Button">
+                                                    <Setter Property="Control.Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="{x:Type Control}">
+                                                                <Grid>
+                                                                    <Border Background="{TemplateBinding Background}"
+                                                                            BorderBrush="#666666" BorderThickness="1" CornerRadius="5">
+                                                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                                                          Content="{Binding Path=Content, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}" />
+                                                                    </Border>
+                                                                </Grid>
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                    <Style.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Cursor" Value="Hand" />
+                                                        </Trigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Button.Style>
+                                        </Button>
+                                    </Grid>
+                                </Page>
+                            </Frame.Content>
+                        </Frame>
+                    </TabItem>
+                </TabControl>
+                <Grid Name="resizer" Height="5" VerticalAlignment="Bottom" Background="White">
+                    <Grid.Style>
+                        <Style TargetType="Grid">
+                            <Setter Property="Cursor" Value="SizeNS" />
+                        </Style>
+                    </Grid.Style>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

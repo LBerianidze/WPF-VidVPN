@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DOCUMENT Type="Advanced Installer" CreateVersion="16.1" version="16.1" Modules="architect" RootPath="." Language="ru" Id="{458461FF-A038-41CE-BE14-B3BE42B52D95}">
+  <COMPONENT cid="caphyon.advinst.msicomp.ProjectOptionsComponent">
+    <ROW Name="HiddenItems" Value="AppXProductDetailsComponent;AppXDependenciesComponent;AppXAppDetailsComponent;AppXVisualAssetsComponent;AppXCapabilitiesComponent;AppXAppDeclarationsComponent;AppXUriRulesComponent;ActSyncAppComponent;FixupComponent"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
+    <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
+    <ROW Property="AI_FINDEXE_TITLE" Value="Select the installation package for [|ProductName]" ValueLocId="AI.Property.FindExeTitle"/>
+    <ROW Property="AI_RUN_AS_ADMIN" Value="1"/>
+    <ROW Property="AI_ThemeStyle" Value="aero" MultiBuildValue="DefaultBuild:default" MsiKey="AI_ThemeStyle"/>
+    <ROW Property="ALLUSERS" Value="1" MultiBuildValue="DefaultBuild:3"/>
+    <ROW Property="ARPCOMMENTS" Value="https://vidvpn.cc" ValueLocId="*"/>
+    <ROW Property="ARPCONTACT" Value="https://vidvpn.cc"/>
+    <ROW Property="ARPHELPLINK" Value="https://vidvpn.cc"/>
+    <ROW Property="ARPHELPTELEPHONE" Value="https://vidvpn.cc"/>
+    <ROW Property="ARPNOREPAIR" MultiBuildValue="DefaultBuild:1"/>
+    <ROW Property="ARPPRODUCTICON" Value="vpn_icon_1.exe" Type="8"/>
+    <ROW Property="ARPURLINFOABOUT" Value="https://vidvpn.cc"/>
+    <ROW Property="ARPURLUPDATEINFO" Value="https://vidvpn.cc"/>
+    <ROW Property="AiFeatIcoMainFeature" Value="vpn_icon_1.exe" Type="8"/>
+    <ROW Property="AiPreferFastOem" MultiBuildValue="DefaultBuild:1"/>
+    <ROW Property="CTRLS" Value="2"/>
+    <ROW Property="FILE_TO_LAUNCH" Value="C:\"/>
+    <ROW Property="MSIFASTINSTALL" MultiBuildValue="DefaultBuild:1"/>
+    <ROW Property="Manufacturer" Value="VidVPN"/>
+    <ROW Property="ProductCode" Value="1049:{D892AE39-301D-40F1-B618-49CD02F115EC} " Type="16"/>
+    <ROW Property="ProductLanguage" Value="1049"/>
+    <ROW Property="ProductName" Value="VidVPN"/>
+    <ROW Property="ProductVersion" Value="1.5.0.0" Type="32" TargetFile="VidVPNGUI.exe"/>
+    <ROW Property="REBOOT" MultiBuildValue="DefaultBuild:ReallySuppress"/>
+    <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND;AI_SETUPEXEPATH;SETUPEXEDIR"/>
+    <ROW Property="UpgradeCode" Value="{7EA54868-8E7F-4F32-A84E-2758B51C0FB8}"/>
+    <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsType9XDisplay" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT40" MultiBuildValue="DefaultBuild:Windows NT 4.0" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT40Display" MultiBuildValue="DefaultBuild:Windows NT 4.0" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT50" MultiBuildValue="DefaultBuild:Windows 2000" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT50Display" MultiBuildValue="DefaultBuild:Windows 2000" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT5X" MultiBuildValue="DefaultBuild:Windows XP/2003 RTM, Windows XP/2003 SP1, Windows XP SP2 x86" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT5XDisplay" MultiBuildValue="DefaultBuild:Windows XP/2003 RTM, Windows XP/2003 SP1, Windows XP SP2 x86" ValueLocId="-"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiDirsComponent">
+    <ROW Directory="APPDIR" Directory_Parent="TARGETDIR" DefaultDir="APPDIR:." IsPseudoRoot="1"/>
+    <ROW Directory="DesktopFolder" Directory_Parent="TARGETDIR" DefaultDir="DESKTO~1|DesktopFolder" IsPseudoRoot="1"/>
+    <ROW Directory="ProgramFilesFolder" Directory_Parent="TARGETDIR" DefaultDir="PROGRA~1|ProgramFilesFolder" IsPseudoRoot="1"/>
+    <ROW Directory="TARGETDIR" DefaultDir="SourceDir"/>
+    <ROW Directory="VidVPNGUI_Dir" Directory_Parent="ProgramFilesFolder" DefaultDir="VidVPN"/>
+    <ROW Directory="bin7_Dir" Directory_Parent="VidVPNGUI_Dir" DefaultDir="bin7"/>
+    <ROW Directory="bin_Dir" Directory_Parent="VidVPNGUI_Dir" DefaultDir="bin"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
+    <ROW Component="AI_ExePath" ComponentId="{A702B565-A597-41D9-B654-6C302809240E}" Directory_="APPDIR" Attributes="4" KeyPath="AI_ExePath"/>
+    <ROW Component="APPDIR" ComponentId="{A4F26BFC-CA7E-4A0E-A200-10B6F23C565B}" Directory_="APPDIR" Attributes="0"/>
+    <ROW Component="Gma.System.MouseKeyHook.dll" ComponentId="{84153FE7-A558-4DD5-B3CE-6B6AAF38E25A}" Directory_="VidVPNGUI_Dir" Attributes="0" KeyPath="Gma.System.MouseKeyHook.dll"/>
+    <ROW Component="Newtonsoft.Json.dll" ComponentId="{572709DE-AD50-49FF-A141-B9EBE6B3A56A}" Directory_="VidVPNGUI_Dir" Attributes="0" KeyPath="Newtonsoft.Json.dll"/>
+    <ROW Component="ProductInformation" ComponentId="{CDD0E7B7-4E3B-45D6-B69D-737BB73A483E}" Directory_="APPDIR" Attributes="4" KeyPath="Version"/>
+    <ROW Component="SharpVectors.Converters.dll" ComponentId="{9F6E8DF5-66E6-4BFE-B583-4923F90E0DA8}" Directory_="VidVPNGUI_Dir" Attributes="0" KeyPath="SharpVectors.Converters.dll"/>
+    <ROW Component="SharpVectors.Core.dll" ComponentId="{FE6E8B29-F61B-4F30-B5C3-023AF6F0D2A1}" Directory_="VidVPNGUI_Dir" Attributes="0" KeyPath="SharpVectors.Core.dll"/>
+    <ROW Component="SharpVectors.Css.dll" ComponentId="{3B09710B-AEEB-480C-A7BC-4EEA8AF074B0}" Directory_="VidVPNGUI_Dir" Attributes="0" KeyPath="SharpVectors.Css.dll"/>
+    <ROW Component="SharpVectors.Dom.dll" ComponentId="{85C4909D-04DA-4A24-8937-5DE7CE505349}" Directory_="VidVPNGUI_Dir" Attributes="0" KeyPath="SharpVectors.Dom.dll"/>
+    <ROW Component="SharpVectors.Model.dll" ComponentId="{209C7750-75DA-4108-B8F1-6276FDB848B4}" Directory_="VidVPNGUI_Dir" Attributes="0" KeyPath="SharpVectors.Model.dll"/>
+    <ROW Component="SharpVectors.Rendering.Gdi.dll" ComponentId="{1BD20D23-C8F2-42E6-AB8F-35D8B531D6EE}" Directory_="VidVPNGUI_Dir" Attributes="0" KeyPath="SharpVectors.Rendering.Gdi.dll"/>
+    <ROW Component="SharpVectors.Rendering.Wpf.dll" ComponentId="{795C404F-4FEA-4023-A287-1841CDDFFF28}" Directory_="VidVPNGUI_Dir" Attributes="0" KeyPath="SharpVectors.Rendering.Wpf.dll"/>
+    <ROW Component="SharpVectors.Runtime.dll" ComponentId="{7FB04074-E2EF-4C21-9CE0-A7B801D1D6CF}" Directory_="VidVPNGUI_Dir" Attributes="0" KeyPath="SharpVectors.Runtime.dll"/>
+    <ROW Component="Telerik.WinControls.Themes.Aqua.dll" ComponentId="{ACC9DDDC-47B0-4F00-A72B-8BA4A3ED41C9}" Directory_="VidVPNGUI_Dir" Attributes="0" KeyPath="Telerik.WinControls.Themes.Aqua.dll"/>
+    <ROW Component="Telerik.WinControls.Themes.Fluent.dll" ComponentId="{B9D62494-6A6F-41A6-89AB-E1074C42260B}" Directory_="VidVPNGUI_Dir" Attributes="0" KeyPath="Telerik.WinControls.Themes.Fluent.dll"/>
+    <ROW Component="Telerik.WinControls.UI.dll" ComponentId="{4D1A908E-3FCE-45D0-A817-3C77ED9C60C8}" Directory_="VidVPNGUI_Dir" Attributes="0" KeyPath="Telerik.WinControls.UI.dll"/>
+    <ROW Component="Telerik.WinControls.dll" ComponentId="{18F853F7-B6F0-4A48-B7B2-1FFAC4A9A0E7}" Directory_="VidVPNGUI_Dir" Attributes="0" KeyPath="Telerik.WinControls.dll"/>
+    <ROW Component="TelerikCommon.dll" ComponentId="{DB505F9D-89AA-43A0-BE0F-B590607EE48F}" Directory_="VidVPNGUI_Dir" Attributes="0" KeyPath="TelerikCommon.dll"/>
+    <ROW Component="VidVPN.exe" ComponentId="{FC2FDDCC-B7F0-44E4-BA4F-C1F288225BE3}" Directory_="VidVPNGUI_Dir" Attributes="0" KeyPath="VidVPNGUI.exe"/>
+    <ROW Component="WpfAnimatedGif.dll" ComponentId="{6B66FC8E-CBD1-4B49-8E9F-ECECFDA88E3E}" Directory_="VidVPNGUI_Dir" Attributes="0" KeyPath="WpfAnimatedGif.dll"/>
+    <ROW Component="XamlAnimatedGif.dll" ComponentId="{40F4C959-1D07-446D-8FFB-C3B546F2B1E4}" Directory_="VidVPNGUI_Dir" Attributes="0" KeyPath="XamlAnimatedGif.dll"/>
+    <ROW Component="libcrypto1_1x64.dll" ComponentId="{69357E64-B53D-4A19-98A6-0819FD824016}" Directory_="bin_Dir" Attributes="256" KeyPath="libcrypto1_1x64.dll"/>
+    <ROW Component="libcrypto1_1x64.dll_1" ComponentId="{EE5C6527-B5AA-4A09-93C4-69FA52D112A7}" Directory_="bin7_Dir" Attributes="256" KeyPath="libcrypto1_1x64.dll_1"/>
+    <ROW Component="liblzo22.dll" ComponentId="{419CE5DC-D84D-48F1-A6A4-E54A8261F96E}" Directory_="bin_Dir" Attributes="256" KeyPath="liblzo22.dll"/>
+    <ROW Component="liblzo22.dll_1" ComponentId="{17EB5FB7-858E-491C-806B-15E9F3EEAAA2}" Directory_="bin7_Dir" Attributes="256" KeyPath="liblzo22.dll_1"/>
+    <ROW Component="libpkcs11helper1.dll" ComponentId="{490B0EC2-F61D-4EB6-8C77-4D165F85BF3A}" Directory_="bin_Dir" Attributes="256" KeyPath="libpkcs11helper1.dll"/>
+    <ROW Component="libpkcs11helper1.dll_1" ComponentId="{9B3527C1-F462-4196-9661-70D25A32EE34}" Directory_="bin7_Dir" Attributes="256" KeyPath="libpkcs11helper1.dll_1"/>
+    <ROW Component="libssl1_1x64.dll" ComponentId="{B2747D7C-E4C7-40FC-A4CD-2C6AE2352C52}" Directory_="bin_Dir" Attributes="256" KeyPath="libssl1_1x64.dll"/>
+    <ROW Component="libssl1_1x64.dll_1" ComponentId="{443E39C5-2A7D-4E0F-9D09-9903E3552035}" Directory_="bin7_Dir" Attributes="256" KeyPath="libssl1_1x64.dll_1"/>
+    <ROW Component="openssl.exe" ComponentId="{BBA656FF-D813-49F4-8210-23E7C4ABC316}" Directory_="bin_Dir" Attributes="256" KeyPath="openssl.exe"/>
+    <ROW Component="openssl.exe_1" ComponentId="{C1CFE54D-63AE-45AB-AE4F-441DA68638E3}" Directory_="bin7_Dir" Attributes="256" KeyPath="openssl.exe_1"/>
+    <ROW Component="openvpn.exe" ComponentId="{B31404BB-334A-48BB-B9F3-83973A2EA384}" Directory_="bin_Dir" Attributes="256" KeyPath="openvpn.exe"/>
+    <ROW Component="openvpn.exe_1" ComponentId="{DF66BF7C-BBC5-4E5A-9ABB-3926AC3ACCEF}" Directory_="bin7_Dir" Attributes="256" KeyPath="openvpn.exe_1"/>
+    <ROW Component="openvpnserv.exe" ComponentId="{F967F1A1-3452-4577-8F55-3BAF91BA7D50}" Directory_="bin_Dir" Attributes="256" KeyPath="openvpnserv.exe"/>
+    <ROW Component="openvpnserv.exe_1" ComponentId="{B7CCAFE4-F8B4-498F-8F5F-627F596659AF}" Directory_="bin7_Dir" Attributes="256" KeyPath="openvpnserv.exe_1"/>
+    <ROW Component="tapfixer.exe" ComponentId="{597F42C9-130F-4631-8061-8D0C402DB013}" Directory_="VidVPNGUI_Dir" Attributes="0" KeyPath="tapfixer.exe"/>
+    <ROW Component="xNet.dll" ComponentId="{93AA9373-34C6-4EAA-8BFE-05328640D505}" Directory_="VidVPNGUI_Dir" Attributes="0" KeyPath="xNet.dll"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
+    <ROW Feature="MainFeature" Title="VidVPN" Description="Description" Display="1" Level="1" Directory_="APPDIR" Attributes="0"/>
+    <ATTRIBUTE name="CurrentFeature" value="MainFeature"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
+    <ROW File="tapfixer.exe" Component_="tapfixer.exe" FileName="TAP-FI~1.EXE|tap-fixer.exe" Attributes="0" SourcePath="VidVPN\bin\Release\VidVPN\tap-fixer.exe" SelfReg="false" DigSign="true"/>
+    <ROW File="VidVPNGUI.exe" Component_="VidVPN.exe" FileName="VidVPN.exe" Attributes="0" SourcePath="VidVPN\bin\Release\VidVPN\VidVPN.exe" SelfReg="false" DigSign="true"/>
+    <ROW File="libcrypto1_1x64.dll" Component_="libcrypto1_1x64.dll" FileName="LIBCRY~1.DLL|libcrypto-1_1-x64.dll" Attributes="0" SourcePath="VidVPN\bin\Release\VidVPN\bin\libcrypto-1_1-x64.dll" SelfReg="false"/>
+    <ROW File="liblzo22.dll" Component_="liblzo22.dll" FileName="LIBLZO~1.DLL|liblzo2-2.dll" Attributes="0" SourcePath="VidVPN\bin\Release\VidVPN\bin\liblzo2-2.dll" SelfReg="false"/>
+    <ROW File="libpkcs11helper1.dll" Component_="libpkcs11helper1.dll" FileName="LIBPKC~1.DLL|libpkcs11-helper-1.dll" Attributes="0" SourcePath="VidVPN\bin\Release\VidVPN\bin\libpkcs11-helper-1.dll" SelfReg="false"/>
+    <ROW File="libssl1_1x64.dll" Component_="libssl1_1x64.dll" FileName="LIBSSL~1.DLL|libssl-1_1-x64.dll" Attributes="0" SourcePath="VidVPN\bin\Release\VidVPN\bin\libssl-1_1-x64.dll" SelfReg="false"/>
+    <ROW File="openssl.exe" Component_="openssl.exe" FileName="openssl.exe" Attributes="0" SourcePath="VidVPN\bin\Release\VidVPN\bin\openssl.exe" SelfReg="false" DigSign="true"/>
+    <ROW File="openvpn.exe" Component_="openvpn.exe" FileName="openvpn.exe" Attributes="0" SourcePath="VidVPN\bin\Release\VidVPN\bin\openvpn.exe" SelfReg="false" DigSign="true"/>
+    <ROW File="openvpnserv.exe" Component_="openvpnserv.exe" FileName="OPENVP~1.EXE|openvpnserv.exe" Attributes="0" SourcePath="VidVPN\bin\Release\VidVPN\bin\openvpnserv.exe" SelfReg="false" DigSign="true"/>
+    <ROW File="libcrypto1_1x64.dll_1" Component_="libcrypto1_1x64.dll_1" FileName="LIBCRY~1.DLL|libcrypto-1_1-x64.dll" Attributes="0" SourcePath="VidVPN\bin\Release\VidVPN\bin7\libcrypto-1_1-x64.dll" SelfReg="false"/>
+    <ROW File="liblzo22.dll_1" Component_="liblzo22.dll_1" FileName="LIBLZO~1.DLL|liblzo2-2.dll" Attributes="0" SourcePath="VidVPN\bin\Release\VidVPN\bin7\liblzo2-2.dll" SelfReg="false"/>
+    <ROW File="libpkcs11helper1.dll_1" Component_="libpkcs11helper1.dll_1" FileName="LIBPKC~1.DLL|libpkcs11-helper-1.dll" Attributes="0" SourcePath="VidVPN\bin\Release\VidVPN\bin7\libpkcs11-helper-1.dll" SelfReg="false"/>
+    <ROW File="libssl1_1x64.dll_1" Component_="libssl1_1x64.dll_1" FileName="LIBSSL~1.DLL|libssl-1_1-x64.dll" Attributes="0" SourcePath="VidVPN\bin\Release\VidVPN\bin7\libssl-1_1-x64.dll" SelfReg="false"/>
+    <ROW File="openssl.exe_1" Component_="openssl.exe_1" FileName="openssl.exe" Attributes="0" SourcePath="VidVPN\bin\Release\VidVPN\bin7\openssl.exe" SelfReg="false" DigSign="true"/>
+    <ROW File="openvpn.exe_1" Component_="openvpn.exe_1" FileName="openvpn.exe" Attributes="0" SourcePath="VidVPN\bin\Release\VidVPN\bin7\openvpn.exe" SelfReg="false" DigSign="true"/>
+    <ROW File="openvpnserv.exe_1" Component_="openvpnserv.exe_1" FileName="OPENVP~1.EXE|openvpnserv.exe" Attributes="0" SourcePath="VidVPN\bin\Release\VidVPN\bin7\openvpnserv.exe" SelfReg="false" DigSign="true"/>
+    <ROW File="Gma.System.MouseKeyHook.dll" Component_="Gma.System.MouseKeyHook.dll" FileName="GMASYS~1.DLL|Gma.System.MouseKeyHook.dll" Attributes="0" SourcePath="VidVPN\bin\Release\VidVPN\Gma.System.MouseKeyHook.dll" SelfReg="false"/>
+    <ROW File="Newtonsoft.Json.dll" Component_="Newtonsoft.Json.dll" FileName="NEWTON~1.DLL|Newtonsoft.Json.dll" Attributes="0" SourcePath="VidVPN\bin\Release\VidVPN\Newtonsoft.Json.dll" SelfReg="false"/>
+    <ROW File="SharpVectors.Converters.dll" Component_="SharpVectors.Converters.dll" FileName="SHARPV~1.DLL|SharpVectors.Converters.dll" Attributes="0" SourcePath="VidVPN\bin\Release\VidVPN\SharpVectors.Converters.dll" SelfReg="false"/>
+    <ROW File="SharpVectors.Core.dll" Component_="SharpVectors.Core.dll" FileName="SHARPV~2.DLL|SharpVectors.Core.dll" Attributes="0" SourcePath="VidVPN\bin\Release\VidVPN\SharpVectors.Core.dll" SelfReg="false"/>
+    <ROW File="SharpVectors.Css.dll" Component_="SharpVectors.Css.dll" FileName="SHARPV~3.DLL|SharpVectors.Css.dll" Attributes="0" SourcePath="VidVPN\bin\Release\VidVPN\SharpVectors.Css.dll" SelfReg="false"/>
+    <ROW File="SharpVectors.Dom.dll" Component_="SharpVectors.Dom.dll" FileName="SHARPV~4.DLL|SharpVectors.Dom.dll" Attributes="0" SourcePath="VidVPN\bin\Release\VidVPN\SharpVectors.Dom.dll" SelfReg="false"/>
+    <ROW File="SharpVectors.Model.dll" Component_="SharpVectors.Model.dll" FileName="SHARPV~5.DLL|SharpVectors.Model.dll" Attributes="0" SourcePath="VidVPN\bin\Release\VidVPN\SharpVectors.Model.dll" SelfReg="false"/>
+    <ROW File="SharpVectors.Rendering.Gdi.dll" Component_="SharpVectors.Rendering.Gdi.dll" FileName="SHARPV~6.DLL|SharpVectors.Rendering.Gdi.dll" Attributes="0" SourcePath="VidVPN\bin\Release\VidVPN\SharpVectors.Rendering.Gdi.dll" SelfReg="false"/>
+    <ROW File="SharpVectors.Rendering.Wpf.dll" Component_="SharpVectors.Rendering.Wpf.dll" FileName="SHARPV~7.DLL|SharpVectors.Rendering.Wpf.dll" Attributes="0" SourcePath="VidVPN\bin\Release\VidVPN\SharpVectors.Rendering.Wpf.dll" SelfReg="false"/>
+    <ROW File="SharpVectors.Runtime.dll" Component_="SharpVectors.Runtime.dll" FileName="SHARPV~8.DLL|SharpVectors.Runtime.dll" Attributes="0" SourcePath="VidVPN\bin\Release\VidVPN\SharpVectors.Runtime.dll" SelfReg="false"/>
+    <ROW File="Telerik.WinControls.dll" Component_="Telerik.WinControls.dll" FileName="TELERI~1.DLL|Telerik.WinControls.dll" Attributes="0" SourcePath="VidVPN\bin\Release\VidVPN\Telerik.WinControls.dll" SelfReg="false"/>
+    <ROW File="Telerik.WinControls.Themes.Aqua.dll" Component_="Telerik.WinControls.Themes.Aqua.dll" FileName="TELERI~2.DLL|Telerik.WinControls.Themes.Aqua.dll" Attributes="0" SourcePath="VidVPN\bin\Release\VidVPN\Telerik.WinControls.Themes.Aqua.dll" SelfReg="false"/>
+    <ROW File="Telerik.WinControls.Themes.Fluent.dll" Component_="Telerik.WinControls.Themes.Fluent.dll" FileName="TELERI~3.DLL|Telerik.WinControls.Themes.Fluent.dll" Attributes="0" SourcePath="VidVPN\bin\Release\VidVPN\Telerik.WinControls.Themes.Fluent.dll" SelfReg="false"/>
+    <ROW File="Telerik.WinControls.UI.dll" Component_="Telerik.WinControls.UI.dll" FileName="TELERI~4.DLL|Telerik.WinControls.UI.dll" Attributes="0" SourcePath="VidVPN\bin\Release\VidVPN\Telerik.WinControls.UI.dll" SelfReg="false"/>
+    <ROW File="TelerikCommon.dll" Component_="TelerikCommon.dll" FileName="TELERI~5.DLL|TelerikCommon.dll" Attributes="0" SourcePath="VidVPN\bin\Release\VidVPN\TelerikCommon.dll" SelfReg="false"/>
+    <ROW File="WpfAnimatedGif.dll" Component_="WpfAnimatedGif.dll" FileName="WPFANI~1.DLL|WpfAnimatedGif.dll" Attributes="0" SourcePath="VidVPN\bin\Release\VidVPN\WpfAnimatedGif.dll" SelfReg="false"/>
+    <ROW File="XamlAnimatedGif.dll" Component_="XamlAnimatedGif.dll" FileName="XAMLAN~1.DLL|XamlAnimatedGif.dll" Attributes="0" SourcePath="VidVPN\bin\Release\VidVPN\XamlAnimatedGif.dll" SelfReg="false"/>
+    <ROW File="xNet.dll" Component_="xNet.dll" FileName="xNet.dll" Attributes="0" SourcePath="VidVPN\bin\Release\VidVPN\xNet.dll" SelfReg="false"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BuildComponent">
+    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="1" PackageFolder="Setup" Languages="ru" InstallationType="4" CabsLocation="1" PackageType="1" FilesInsideExe="true" ExeIconPath="VidVPN\vpn_icon.ico" ExtractionFolder="[AppDataFolder][|Manufacturer]\[|ProductName] [|ProductVersion]\install" ExtUI="true" UseLargeSchema="true" ExeName="VidVPN Setup" UACExecutionLevel="2"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.DictionaryComponent">
+    <ROW Path="&lt;AI_DICTS&gt;ui.ail"/>
+    <ROW Path="&lt;AI_DICTS&gt;ui_ru.ail"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.DigCertStoreComponent">
+    <ROW DigitalCertificate="sertigo.pfx" TimeStampUrl="http://timestamp.digicert.com" SignerDescription="[|ProductName]" SignOptions="7" SignTool="0" UseSha256="1" Password="0999EDA49793B6035080FA53"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.FragmentComponent">
+    <ROW Fragment="CommonUI.aip" Path="&lt;AI_FRAGS&gt;CommonUI.aip"/>
+    <ROW Fragment="ConfigureDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\ConfigureDlg.aip"/>
+    <ROW Fragment="CustomizePage.aip" Path="&lt;AI_THEMES&gt;classic\fragments\CustomizePage.aip"/>
+    <ROW Fragment="FolderPage.aip" Path="&lt;AI_THEMES&gt;classic\fragments\FolderPage.aip"/>
+    <ROW Fragment="MaintenanceTypeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\MaintenanceTypeDlg.aip"/>
+    <ROW Fragment="MaintenanceWelcomeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\MaintenanceWelcomeDlg.aip"/>
+    <ROW Fragment="NETFramework4.5.1.aip" Path="&lt;AI_PREDEFINED_PREREQUISITES&gt;.NET Framework 4.5.1\.NET Framework 4.5.1.aip"/>
+    <ROW Fragment="NETFramework4.5.1web.aip" Path="&lt;AI_PREDEFINED_PREREQUISITES&gt;.NET Framework 4.5.1 (web)\.NET Framework 4.5.1 (web).aip"/>
+    <ROW Fragment="NETFramework4.5.aip" Path="&lt;AI_PREDEFINED_PREREQUISITES&gt;.NET Framework 4.5\.NET Framework 4.5.aip"/>
+    <ROW Fragment="NETFramework4.5web.aip" Path="&lt;AI_PREDEFINED_PREREQUISITES&gt;.NET Framework 4.5 (web)\.NET Framework 4.5 (web).aip"/>
+    <ROW Fragment="PreparePrereqDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\PreparePrereqDlg.aip"/>
+    <ROW Fragment="SequenceDialogs.aip" Path="&lt;AI_THEMES&gt;classic\fragments\SequenceDialogs.aip"/>
+    <ROW Fragment="Sequences.aip" Path="&lt;AI_FRAGS&gt;Sequences.aip"/>
+    <ROW Fragment="StaticUIStrings.aip" Path="&lt;AI_FRAGS&gt;StaticUIStrings.aip"/>
+    <ROW Fragment="UI.aip" Path="&lt;AI_THEMES&gt;classic\fragments\UI.aip"/>
+    <ROW Fragment="Validation.aip" Path="&lt;AI_FRAGS&gt;Validation.aip"/>
+    <ROW Fragment="VerifyRemoveDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\VerifyRemoveDlg.aip"/>
+    <ROW Fragment="VerifyRepairDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\VerifyRepairDlg.aip"/>
+    <ROW Fragment="WelcomeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\WelcomeDlg.aip"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiActionTextComponent">
+    <ROW Action="AI_DeleteLzma" Description="Deleting files extracted from archive" DescriptionLocId="ActionText.Description.AI_DeleteLzma" TemplateLocId="-"/>
+    <ROW Action="AI_DeleteRLzma" Description="Deleting files extracted from archive" DescriptionLocId="ActionText.Description.AI_DeleteLzma" TemplateLocId="-"/>
+    <ROW Action="AI_ExtractFiles" Description="Extracting files from archive" DescriptionLocId="ActionText.Description.AI_ExtractLzma" TemplateLocId="-"/>
+    <ROW Action="AI_ExtractLzma" Description="Extracting files from archive" DescriptionLocId="ActionText.Description.AI_ExtractLzma" TemplateLocId="-"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiAppSearchComponent">
+    <ROW Property="AI_SETUPEXEPATH" Signature_="AI_EXE_PATH_LM" Builds="DefaultBuild"/>
+    <ROW Property="AI_SETUPEXEPATH" Signature_="AI_EXE_PATH_CU" Builds="DefaultBuild"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiBinaryComponent">
+    <ROW Name="Prereq.dll" SourcePath="&lt;AI_CUSTACTS&gt;Prereq.dll"/>
+    <ROW Name="aicustact.dll" SourcePath="&lt;AI_CUSTACTS&gt;aicustact.dll"/>
+    <ROW Name="lzmaextractor.dll" SourcePath="&lt;AI_CUSTACTS&gt;lzmaextractor.dll"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiControlComponent">
+    <ROW Dialog_="ExitDialog" Control="LaunchProdText" Type="Text" X="148" Y="170" Width="220" Height="20" Attributes="196611" Text="Запустить [ProductName]" Order="800" TextLocId="Control.Text.ExitDialog#LaunchProdText" MsiKey="ExitDialog#LaunchProdText"/>
+    <ROW Dialog_="ExitDialog" Control="LaunchProdCheckBox" Type="CheckBox" X="135" Y="170" Width="10" Height="10" Attributes="3" Property="RUNAPPLICATION" Order="900" MsiKey="ExitDialog#LaunchProdCheckBox" Options="1"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiControlEventComponent">
+    <ROW Dialog_="WelcomeDlg" Control_="Next" Event="NewDialog" Argument="ConfigureDlg" Condition="AI_INSTALL" Ordering="1"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_INSTALL" Ordering="197"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="ConfigureDlg" Condition="AI_INSTALL" Ordering="201"/>
+    <ROW Dialog_="MaintenanceWelcomeDlg" Control_="Next" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="99"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_MAINT" Ordering="101"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="1"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_MAINT" Ordering="198"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="CustomizeDlg" Condition="AI_MAINT" Ordering="202"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="ChangeButton" Event="NewDialog" Argument="CustomizeDlg" Condition="AI_MAINT" Ordering="501"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceWelcomeDlg" Condition="AI_MAINT" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RemoveButton" Event="NewDialog" Argument="VerifyRemoveDlg" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="601"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RepairButton" Event="NewDialog" Argument="VerifyRepairDlg" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="601"/>
+    <ROW Dialog_="VerifyRepairDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="1"/>
+    <ROW Dialog_="VerifyRepairDlg" Control_="Repair" Event="EndDialog" Argument="Return" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="399" Options="1"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control_="Remove" Event="EndDialog" Argument="Return" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="299" Options="1"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_PATCH" Ordering="201"/>
+    <ROW Dialog_="ResumeDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_RESUME" Ordering="299"/>
+    <ROW Dialog_="ConfigureDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_INSTALL" Ordering="1"/>
+    <ROW Dialog_="ConfigureDlg" Control_="Back" Event="NewDialog" Argument="WelcomeDlg" Condition="AI_INSTALL" Ordering="1"/>
+    <ROW Dialog_="CustomizePage" Control_="DefBut" Event="[AiStopPageChange]" Argument="{}" Condition="1" Ordering="100" MsiKey="CustomizePage#DefBut#[AiStopPageChange]#{}#1"/>
+    <ROW Dialog_="CustomizePage" Control_="DefBut" Event="EndDialog" Argument="Return" Condition="1" Ordering="200" MsiKey="CustomizePage#DefBut#EndDialog#Return#1"/>
+    <ROW Dialog_="ConfigureDlg" Control_="Tab" Event="SpawnDialog" Argument="CustomizePage" Condition="( AiTabPage ) AND ( 1 )" Ordering="0"/>
+    <ROW Dialog_="FolderPage" Control_="DefBut" Event="[AiStopPageChange]" Argument="{}" Condition="1" Ordering="100" MsiKey="FolderPage#DefBut#[AiStopPageChange]#{}#1"/>
+    <ROW Dialog_="FolderPage" Control_="DefBut" Event="SetTargetPath" Argument="APPDIR" Condition="NOT AiTabPagePreChange" Ordering="200" MsiKey="FolderPage#DefBut#SetTargetPath#APPDIR#NOT AiTabPagePreChange"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_PATCH" Ordering="199"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="PatchWelcomeDlg" Condition="AI_PATCH" Ordering="203"/>
+    <ROW Dialog_="FolderPage" Control_="DefBut" Event="EndDialog" Argument="Return" Condition="1" Ordering="300" MsiKey="FolderPage#DefBut#EndDialog#Return#1"/>
+    <ROW Dialog_="FolderPage" Control_="Browse" Event="[_BrowseProperty]" Argument="APPDIR" Condition="1" Ordering="100" MsiKey="FolderPage#Browse#[_BrowseProperty]#APPDIR#1"/>
+    <ROW Dialog_="ConfigureDlg" Control_="Tab" Event="SpawnDialog" Argument="FolderPage" Condition="( AiTabPage ) AND ( NOT Installed )" Ordering="1"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCreateFolderComponent">
+    <ROW Directory_="APPDIR" Component_="APPDIR" ManualDelete="true"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCustActComponent">
+    <ROW Action="AI_AppSearchEx" Type="1" Source="Prereq.dll" Target="DoAppSearchEx"/>
+    <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Type="51" Source="AI_SETUPEXEPATH_ORIGINAL" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DATA_SETTER" Type="51" Source="AI_ExtractFiles" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DOWNGRADE" Type="19" Target="4010"/>
+    <ROW Action="AI_DeleteCadLzma" Type="51" Source="AI_DeleteLzma" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DeleteLzma" Type="1025" Source="lzmaextractor.dll" Target="DeleteLZMAFiles"/>
+    <ROW Action="AI_DeleteRCadLzma" Type="51" Source="AI_DeleteRLzma" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DeleteRLzma" Type="1281" Source="lzmaextractor.dll" Target="DeleteLZMAFiles"/>
+    <ROW Action="AI_DpiContentScale" Type="1" Source="aicustact.dll" Target="DpiContentScale"/>
+    <ROW Action="AI_EnableDebugLog" Type="321" Source="aicustact.dll" Target="EnableDebugLog"/>
+    <ROW Action="AI_EstimateExtractFiles" Type="1" Source="Prereq.dll" Target="EstimateExtractFiles"/>
+    <ROW Action="AI_ExtractCadLzma" Type="51" Source="AI_ExtractLzma" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_ExtractFiles" Type="1025" Source="Prereq.dll" Target="ExtractSourceFiles" AdditionalSeq="AI_DATA_SETTER"/>
+    <ROW Action="AI_ExtractLzma" Type="1025" Source="lzmaextractor.dll" Target="ExtractLZMAFiles"/>
+    <ROW Action="AI_FindExeLzma" Type="1" Source="lzmaextractor.dll" Target="FindEXE"/>
+    <ROW Action="AI_InstallModeCheck" Type="1" Source="aicustact.dll" Target="UpdateInstallMode" WithoutSeq="true"/>
+    <ROW Action="AI_LaunchApp" Type="1" Source="aicustact.dll" Target="[#VidVPNGUI.exe]"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Type="65" Source="aicustact.dll" Target="PrepareUpgrade"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Type="51" Source="AI_SETUPEXEPATH" Target="[AI_SETUPEXEPATH_ORIGINAL]"/>
+    <ROW Action="AI_RESTORE_LOCATION" Type="65" Source="aicustact.dll" Target="RestoreLocation"/>
+    <ROW Action="AI_ResolveKnownFolders" Type="1" Source="aicustact.dll" Target="AI_ResolveKnownFolders"/>
+    <ROW Action="AI_SHOW_LOG" Type="65" Source="aicustact.dll" Target="LaunchLogFile" WithoutSeq="true"/>
+    <ROW Action="AI_STORE_LOCATION" Type="51" Source="ARPINSTALLLOCATION" Target="[APPDIR]"/>
+    <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]" MultiBuildTarget="DefaultBuild:[ProgramFilesFolder][ProductName]"/>
+    <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]"/>
+    <ROW Action="SET_TARGETDIR_TO_APPDIR" Type="51" Source="TARGETDIR" Target="[APPDIR]"/>
+    <ROW Action="SetProperty" Type="51" Source="FILE_TO_LAUNCH" Target="[#tapfixer.exe]"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatCompsComponent">
+    <ROW Feature_="MainFeature" Component_="APPDIR"/>
+    <ROW Feature_="MainFeature" Component_="ProductInformation"/>
+    <ROW Feature_="MainFeature" Component_="tapfixer.exe"/>
+    <ROW Feature_="MainFeature" Component_="libcrypto1_1x64.dll"/>
+    <ROW Feature_="MainFeature" Component_="liblzo22.dll"/>
+    <ROW Feature_="MainFeature" Component_="libpkcs11helper1.dll"/>
+    <ROW Feature_="MainFeature" Component_="libssl1_1x64.dll"/>
+    <ROW Feature_="MainFeature" Component_="openssl.exe"/>
+    <ROW Feature_="MainFeature" Component_="openvpn.exe"/>
+    <ROW Feature_="MainFeature" Component_="openvpnserv.exe"/>
+    <ROW Feature_="MainFeature" Component_="VidVPN.exe"/>
+    <ROW Feature_="MainFeature" Component_="libcrypto1_1x64.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="liblzo22.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="libpkcs11helper1.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="libssl1_1x64.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="openssl.exe_1"/>
+    <ROW Feature_="MainFeature" Component_="openvpn.exe_1"/>
+    <ROW Feature_="MainFeature" Component_="openvpnserv.exe_1"/>
+    <ROW Feature_="MainFeature" Component_="Gma.System.MouseKeyHook.dll"/>
+    <ROW Feature_="MainFeature" Component_="Newtonsoft.Json.dll"/>
+    <ROW Feature_="MainFeature" Component_="SharpVectors.Converters.dll"/>
+    <ROW Feature_="MainFeature" Component_="SharpVectors.Core.dll"/>
+    <ROW Feature_="MainFeature" Component_="SharpVectors.Css.dll"/>
+    <ROW Feature_="MainFeature" Component_="SharpVectors.Dom.dll"/>
+    <ROW Feature_="MainFeature" Component_="SharpVectors.Model.dll"/>
+    <ROW Feature_="MainFeature" Component_="SharpVectors.Rendering.Gdi.dll"/>
+    <ROW Feature_="MainFeature" Component_="AI_ExePath"/>
+    <ROW Feature_="MainFeature" Component_="SharpVectors.Rendering.Wpf.dll"/>
+    <ROW Feature_="MainFeature" Component_="SharpVectors.Runtime.dll"/>
+    <ROW Feature_="MainFeature" Component_="Telerik.WinControls.dll"/>
+    <ROW Feature_="MainFeature" Component_="Telerik.WinControls.Themes.Aqua.dll"/>
+    <ROW Feature_="MainFeature" Component_="Telerik.WinControls.Themes.Fluent.dll"/>
+    <ROW Feature_="MainFeature" Component_="Telerik.WinControls.UI.dll"/>
+    <ROW Feature_="MainFeature" Component_="TelerikCommon.dll"/>
+    <ROW Feature_="MainFeature" Component_="WpfAnimatedGif.dll"/>
+    <ROW Feature_="MainFeature" Component_="XamlAnimatedGif.dll"/>
+    <ROW Feature_="MainFeature" Component_="xNet.dll"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
+    <ROW Name="vpn_icon_1.exe" SourcePath="VidVPN\vpn_icon.ico" Index="0"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstExSeqComponent">
+    <ROW Action="AI_DOWNGRADE" Condition="AI_NEWERPRODUCTFOUND AND (UILevel &lt;&gt; 5)" Sequence="210"/>
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
+    <ROW Action="AI_STORE_LOCATION" Condition="(Not Installed) OR REINSTALL" Sequence="1501"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Condition="AI_UPGRADE=&quot;No&quot; AND (Not Installed)" Sequence="1399"/>
+    <ROW Action="AI_ResolveKnownFolders" Sequence="52"/>
+    <ROW Action="AI_EnableDebugLog" Sequence="51"/>
+    <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Sequence="99" Builds="DefaultBuild"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Condition="AI_SETUPEXEPATH_ORIGINAL" Sequence="102" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="199" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteRCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="198" Builds="DefaultBuild"/>
+    <ROW Action="AI_ExtractCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="197" Builds="DefaultBuild"/>
+    <ROW Action="AI_FindExeLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="196" Builds="DefaultBuild"/>
+    <ROW Action="AI_ExtractLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="1549" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteRLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="1548" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="6599" Builds="DefaultBuild"/>
+    <ROW Action="AI_ExtractFiles" Sequence="3998" Builds="DefaultBuild"/>
+    <ROW Action="AI_DATA_SETTER" Sequence="3997"/>
+    <ROW Action="AI_EstimateExtractFiles" Sequence="3999" Builds="DefaultBuild"/>
+    <ROW Action="SetProperty" Sequence="1201"/>
+    <ROW Action="AI_AppSearchEx" Sequence="101"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
+    <ROW Action="AI_ResolveKnownFolders" Sequence="53"/>
+    <ROW Action="AI_DpiContentScale" Sequence="52"/>
+    <ROW Action="AI_EnableDebugLog" Sequence="51"/>
+    <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Sequence="99"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Condition="AI_SETUPEXEPATH_ORIGINAL" Sequence="102"/>
+    <ROW Action="AI_AppSearchEx" Sequence="101"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiLaunchConditionsComponent">
+    <ROW Condition="(VersionNT &lt;&gt; 400)" Description="[ProductName] cannot be installed on [WindowsTypeNT40Display]." DescriptionLocId="AI.LaunchCondition.NoNT40" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="(VersionNT &lt;&gt; 500)" Description="[ProductName] cannot be installed on [WindowsTypeNT50Display]." DescriptionLocId="AI.LaunchCondition.NoNT50" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="(VersionNT64 OR ((VersionNT &lt;&gt; 501) OR (ServicePackLevel = 3))) AND ((VersionNT &lt;&gt; 502) OR (ServicePackLevel = 2))" Description="[ProductName] cannot be installed on [WindowsTypeNT5XDisplay]." DescriptionLocId="AI.LaunchCondition.NoNT5X" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="SETUPEXEDIR OR (REMOVE=&quot;ALL&quot;)" Description="This package can only be run from a bootstrapper." DescriptionLocId="AI.LaunchCondition.RequireBootstrapper" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="VersionNT" Description="[ProductName] cannot be installed on [WindowsType9XDisplay]." DescriptionLocId="AI.LaunchCondition.No9X" IsPredefined="true" Builds="DefaultBuild"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiRegLocatorComponent">
+    <ROW Signature_="AI_EXE_PATH_CU" Root="1" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Type="2"/>
+    <ROW Signature_="AI_EXE_PATH_LM" Root="2" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Type="2"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiRegsComponent">
+    <ROW Registry="AI_ExePath" Root="-1" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Value="[AI_SETUPEXEPATH]" Component_="AI_ExePath"/>
+    <ROW Registry="Path" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Path" Value="[APPDIR]" Component_="ProductInformation"/>
+    <ROW Registry="Version" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Version" Value="[ProductVersion]" Component_="ProductInformation"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiShortsComponent">
+    <ROW Shortcut="Uninstall" Directory_="VidVPNGUI_Dir" Name="UNINST~1|Uninstall" Component_="AI_ExePath" Target="[SystemFolder]msiexec.exe" Arguments="/x [ProductCode]" Hotkey="0" Icon_="vpn_icon_1.exe" IconIndex="0" ShowCmd="1"/>
+    <ROW Shortcut="VidVPNGUI" Directory_="DesktopFolder" Name="VidVPN" Component_="VidVPN.exe" Target="[#VidVPNGUI.exe]" Hotkey="0" IconIndex="0" ShowCmd="1"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiThemeComponent">
+    <ATTRIBUTE name="UsedTheme" value="classic"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiUpgradeComponent">
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMin="0.0.1" VersionMax="[|ProductVersion]" Attributes="257" ActionProperty="OLDPRODUCTS"/>
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMin="[|ProductVersion]" Attributes="2" ActionProperty="AI_NEWERPRODUCTFOUND"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.PreReqComponent">
+    <ATTRIBUTE name="PrereqsOrder" value="E9BFB0D602DD498F96473C9BBCDDEC89 F7FB4AD7F09F46EF88CE1FACFB376EB1 EDD0228464354F269D1E1FAEB8A9084F FB44691010D74C6D89B33E019630EAF6"/>
+  </COMPONENT>
+</DOCUMENT>

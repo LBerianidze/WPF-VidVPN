@@ -1,0 +1,618 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F8FF0F24-1C96-45CD-8C88-51736F364E53}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>VidVPN</RootNamespace>
+    <AssemblyName>VidVPN</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>vpn_icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Gma.System.MouseKeyHook, Version=5.6.130.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MouseKeyHook.5.6.0\lib\net40\Gma.System.MouseKeyHook.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpVectors.Converters, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b532964b8548be77, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpVectors.1.0\lib\net20\SharpVectors.Converters.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpVectors.Core, Version=0.3.1.1588, Culture=neutral, PublicKeyToken=7407205e337c98ef, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpVectors.1.0\lib\net20\SharpVectors.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpVectors.Css, Version=0.3.1.1590, Culture=neutral, PublicKeyToken=7a46e3f532fdb787, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpVectors.1.0\lib\net20\SharpVectors.Css.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpVectors.Dom, Version=0.3.1.1589, Culture=neutral, PublicKeyToken=517340b6277b1a7a, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpVectors.1.0\lib\net20\SharpVectors.Dom.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpVectors.Model, Version=0.3.1.1592, Culture=neutral, PublicKeyToken=2236cfc76b505845, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpVectors.1.0\lib\net20\SharpVectors.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpVectors.Rendering.Gdi, Version=0.3.1.1595, Culture=neutral, PublicKeyToken=03902092284347e3, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpVectors.1.0\lib\net20\SharpVectors.Rendering.Gdi.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpVectors.Rendering.Wpf, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d0902381100df30e, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpVectors.1.0\lib\net20\SharpVectors.Rendering.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpVectors.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d16e717f0a981fb9, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpVectors.1.0\lib\net20\SharpVectors.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Telerik.WinControls, Version=2019.2.508.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Projects\VidVPN GUI\VidVPN GUI\bin\Release\Telerik.WinControls.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Aqua, Version=2019.2.508.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Projects\VidVPN GUI\VidVPN GUI\bin\Release\VidVPN GUI\Telerik.WinControls.Themes.Aqua.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Fluent, Version=2019.2.508.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Projects\VidVPN GUI\VidVPN GUI\bin\Release\VidVPN GUI\Telerik.WinControls.Themes.Fluent.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.WinControls.UI, Version=2019.2.508.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Projects\VidVPN GUI\VidVPN GUI\bin\Release\Telerik.WinControls.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="TelerikCommon, Version=2019.2.508.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Projects\VidVPN GUI\VidVPN GUI\bin\Release\TelerikCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="WpfAnimatedGif">
+      <HintPath>..\WpfApp1\bin\Debug\WpfAnimatedGif.dll</HintPath>
+    </Reference>
+    <Reference Include="XamlAnimatedGif, Version=1.2.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\XamlAnimatedGif.1.2.2\lib\net45\XamlAnimatedGif.dll</HintPath>
+    </Reference>
+    <Reference Include="xNet">
+      <HintPath>..\..\Projects\VidVPN GUI\VidVPN GUI\bin\Release\xNet.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="AuthorizeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AuthorizeForm.designer.cs">
+      <DependentUpon>AuthorizeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helper.cs" />
+    <Compile Include="LoadingWIndow.xaml.cs">
+      <DependentUpon>LoadingWIndow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AccountPage.xaml.cs">
+      <DependentUpon>AccountPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ConnectionPage.xaml.cs">
+      <DependentUpon>ConnectionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CountriesContainerListView.cs" />
+    <Compile Include="CountryContainer.xaml.cs">
+      <DependentUpon>CountryContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SettingsPage.xaml.cs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UpdatePage.xaml.cs">
+      <DependentUpon>UpdatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ProxyContainer.xaml.cs">
+      <DependentUpon>ProxyContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ThreeStateToggleSwitch.xaml.cs">
+      <DependentUpon>ThreeStateToggleSwitch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TrayWindow.xaml.cs">
+      <DependentUpon>TrayWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VPNServerContainer.xaml.cs">
+      <DependentUpon>VPNServerContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Window1.xaml.cs">
+      <DependentUpon>Window1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowResizer.cs" />
+    <Page Include="LoadingWIndow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AccountPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ConnectionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="API\ApiWorker.cs" />
+    <Compile Include="API\ConfigsController.cs" />
+    <Compile Include="API\Server.cs" />
+    <Compile Include="API\UserInfo.cs" />
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="CountryContainer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\SettingsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\UpdatePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ProxyContainer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ThreeStateToggleSwitch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TrayWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VPNServerContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Window1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="AuthorizeForm.resx">
+      <DependentUpon>AuthorizeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.manifest" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\blue_background.png" />
+    <Resource Include="Images\ConnectButtonStatus_Disconnected.png" />
+    <Resource Include="Images\logo.png" />
+    <Resource Include="Images\overlay_map.png" />
+    <Resource Include="Images\overlay_white.png" />
+    <Resource Include="Images\settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Flags\Afghanistan.png" />
+    <Resource Include="Flags\Albania.png" />
+    <Resource Include="Flags\Algeria.png" />
+    <Resource Include="Flags\Andorra.png" />
+    <Resource Include="Flags\Antigua-and-Barbuda.png" />
+    <Resource Include="Flags\Argentina.png" />
+    <Resource Include="Flags\Armenia.png" />
+    <Resource Include="Flags\Australia.png" />
+    <Resource Include="Flags\Austria.png" />
+    <Resource Include="Flags\Azerbaijan.png" />
+    <Resource Include="Flags\Bahamas.png" />
+    <Resource Include="Flags\Bahrain.png" />
+    <Resource Include="Flags\Bangladesh.png" />
+    <Resource Include="Flags\Barbados.png" />
+    <Resource Include="Flags\Belarus.png" />
+    <Resource Include="Flags\Belgium.png" />
+    <Resource Include="Flags\Belize.png" />
+    <Resource Include="Flags\Benin.png" />
+    <Resource Include="Flags\Bhutan.png" />
+    <Resource Include="Flags\Bolivia.png" />
+    <Resource Include="Flags\Bosnia-and-Herzegovina.png" />
+    <Resource Include="Flags\Botswana.png" />
+    <Resource Include="Flags\Brazil.png" />
+    <Resource Include="Flags\Brunei.png" />
+    <Resource Include="Flags\Bulgaria.png" />
+    <Resource Include="Flags\Burkina-Faso.png" />
+    <Resource Include="Flags\Burundi.png" />
+    <Resource Include="Flags\Cambodia.png" />
+    <Resource Include="Flags\Cameroon.png" />
+    <Resource Include="Flags\Canada.png" />
+    <Resource Include="Flags\Cape-Verde.png" />
+    <Resource Include="Flags\Central-African-Republic.png" />
+    <Resource Include="Flags\Chad.png" />
+    <Resource Include="Flags\Chile.png" />
+    <Resource Include="Flags\China.png" />
+    <Resource Include="Flags\Colombia.png" />
+    <Resource Include="Flags\Comoros.png" />
+    <Resource Include="Flags\Congo-%28Democratic%29.png" />
+    <Resource Include="Flags\Congo-%28Republic%29.png" />
+    <Resource Include="Flags\Costa-Rica.png" />
+    <Resource Include="Flags\Cote-d%27Ivoire.png" />
+    <Resource Include="Flags\Croatia.png" />
+    <Resource Include="Flags\Cuba.png" />
+    <Resource Include="Flags\Cyprus.png" />
+    <Resource Include="Flags\Czech-Republic.png" />
+    <Resource Include="Flags\Denmark.png" />
+    <Resource Include="Flags\Djibouti.png" />
+    <Resource Include="Flags\Dominica.png" />
+    <Resource Include="Flags\Dominican-Republic.png" />
+    <Resource Include="Flags\East-Timor.png" />
+    <Resource Include="Flags\Ecuador.png" />
+    <Resource Include="Flags\Egypt.png" />
+    <Resource Include="Flags\El-Salvador.png" />
+    <Resource Include="Flags\Equatorial-Guinea.png" />
+    <Resource Include="Flags\Eritrea.png" />
+    <Resource Include="Flags\Estonia.png" />
+    <Resource Include="Flags\Ethiopia.png" />
+    <Resource Include="Flags\Fiji.png" />
+    <Resource Include="Flags\Finland.png" />
+    <Resource Include="Flags\France.png" />
+    <Resource Include="Flags\Gabon.png" />
+    <Resource Include="Flags\Gambia.png" />
+    <Resource Include="Flags\Georgia.png" />
+    <Resource Include="Flags\Germany.png" />
+    <Resource Include="Flags\Ghana.png" />
+    <Resource Include="Flags\Grecee.png" />
+    <Resource Include="Flags\Grenada.png" />
+    <Resource Include="Flags\Guatemala.png" />
+    <Resource Include="Flags\Guinea-Bissau.png" />
+    <Resource Include="Flags\Guinea.png" />
+    <Resource Include="Flags\Guyana.png" />
+    <Resource Include="Flags\Haiti.png" />
+    <Resource Include="Flags\Honduras.png" />
+    <Resource Include="Flags\Hungary.png" />
+    <Resource Include="Flags\Iceland.png" />
+    <Resource Include="Flags\India.png" />
+    <Resource Include="Flags\Indonesia.png" />
+    <Resource Include="Flags\Iran.png" />
+    <Resource Include="Flags\Iraq.png" />
+    <Resource Include="Flags\Ireland.png" />
+    <Resource Include="Flags\Israel.png" />
+    <Resource Include="Flags\Italy.png" />
+    <Resource Include="Flags\Jamaica.png" />
+    <Resource Include="Flags\Japan.png" />
+    <Resource Include="Flags\Jordan.png" />
+    <Resource Include="Flags\Kazakhstan.png" />
+    <Resource Include="Flags\Kenya.png" />
+    <Resource Include="Flags\Kiribati.png" />
+    <Resource Include="Flags\Korea,-North.png" />
+    <Resource Include="Flags\Korea,-South.png" />
+    <Resource Include="Flags\Kosovo.png" />
+    <Resource Include="Flags\Kuwait.png" />
+    <Resource Include="Flags\Kyrgyzstan.png" />
+    <Resource Include="Flags\Laos.png" />
+    <Resource Include="Flags\Latvia.png" />
+    <Resource Include="Flags\Lebanon.png" />
+    <Resource Include="Flags\Lesotho.png" />
+    <Resource Include="Flags\Liberia.png" />
+    <Resource Include="Flags\Libya.png" />
+    <Resource Include="Flags\Liechtenstein.png" />
+    <Resource Include="Flags\Lithuania.png" />
+    <Resource Include="Flags\Luxembourg.png" />
+    <Resource Include="Flags\Macedonia.png" />
+    <Resource Include="Flags\Madagascar.png" />
+    <Resource Include="Flags\Malawi.png" />
+    <Resource Include="Flags\Malaysia.png" />
+    <Resource Include="Flags\Maldives.png" />
+    <Resource Include="Flags\Mali.png" />
+    <Resource Include="Flags\Malta.png" />
+    <Resource Include="Flags\Marshall-Islands.png" />
+    <Resource Include="Flags\Mauritania.png" />
+    <Resource Include="Flags\Mauritius.png" />
+    <Resource Include="Flags\Mexico.png" />
+    <Resource Include="Flags\Micronesia-%28Federated%29.png" />
+    <Resource Include="Flags\Moldova.png" />
+    <Resource Include="Flags\Monaco.png" />
+    <Resource Include="Flags\Mongolia.png" />
+    <Resource Include="Flags\Montenegro.png" />
+    <Resource Include="Flags\Morocco.png" />
+    <Resource Include="Flags\Mozambique.png" />
+    <Resource Include="Flags\Myanmar.png" />
+    <Resource Include="Flags\Namibia.png" />
+    <Resource Include="Flags\Nauru.png" />
+    <Resource Include="Flags\Nepal.png" />
+    <Resource Include="Flags\Netherlands.png" />
+    <Resource Include="Flags\New-Zealand.png" />
+    <Resource Include="Flags\Nicaragua.png" />
+    <Resource Include="Flags\Niger.png" />
+    <Resource Include="Flags\Nigeria.png" />
+    <Resource Include="Flags\Norway.png" />
+    <Resource Include="Flags\Oman.png" />
+    <Resource Include="Flags\Pakistan.png" />
+    <Resource Include="Flags\Palau.png" />
+    <Resource Include="Flags\Panama.png" />
+    <Resource Include="Flags\Papua-New-Guinea.png" />
+    <Resource Include="Flags\Paraguay.png" />
+    <Resource Include="Flags\Peru.png" />
+    <Resource Include="Flags\Philippines.png" />
+    <Resource Include="Flags\Poland.png" />
+    <Resource Include="Flags\Portugal.png" />
+    <Resource Include="Flags\Qatar.png" />
+    <Resource Include="Flags\Romania.png" />
+    <Resource Include="Flags\Russia.png" />
+    <Resource Include="Flags\Rwanda.png" />
+    <Resource Include="Flags\Saint-Kitts-and-Nevis.png" />
+    <Resource Include="Flags\Saint-Lucia.png" />
+    <Resource Include="Flags\Saint-Vincent-and-the-Grenadines.png" />
+    <Resource Include="Flags\Samoa.png" />
+    <Resource Include="Flags\San-Marino.png" />
+    <Resource Include="Flags\Sao-Tome-and-Principe.png" />
+    <Resource Include="Flags\Saudi-Arabia.png" />
+    <Resource Include="Flags\Senegal.png" />
+    <Resource Include="Flags\Serbia.png" />
+    <Resource Include="Flags\Seychelles.png" />
+    <Resource Include="Flags\Sierra-Leone.png" />
+    <Resource Include="Flags\Singapore.png" />
+    <Resource Include="Flags\Slovakia.png" />
+    <Resource Include="Flags\Slovenia.png" />
+    <Resource Include="Flags\Solomon-Islands.png" />
+    <Resource Include="Flags\Somalia.png" />
+    <Resource Include="Flags\South-Africa.png" />
+    <Resource Include="Flags\South-Sudan.png" />
+    <Resource Include="Flags\Spain.png" />
+    <Resource Include="Flags\Sri-Lanka.png" />
+    <Resource Include="Flags\Sudan.png" />
+    <Resource Include="Flags\Suriname.png" />
+    <Resource Include="Flags\Swaziland.png" />
+    <Resource Include="Flags\Sweden.png" />
+    <Resource Include="Flags\Switzerland.png" />
+    <Resource Include="Flags\Syria.png" />
+    <Resource Include="Flags\Taiwan.png" />
+    <Resource Include="Flags\Tajikistan.png" />
+    <Resource Include="Flags\Tanzania.png" />
+    <Resource Include="Flags\Thailand.png" />
+    <Resource Include="Flags\Togo.png" />
+    <Resource Include="Flags\Tonga.png" />
+    <Resource Include="Flags\Trinidad-and-Tobago.png" />
+    <Resource Include="Flags\Tunisia.png" />
+    <Resource Include="Flags\Turkey.png" />
+    <Resource Include="Flags\Turkmenistan.png" />
+    <Resource Include="Flags\Tuvalu.png" />
+    <Resource Include="Flags\Uganda.png" />
+    <Resource Include="Flags\Ukraine.png" />
+    <Resource Include="Flags\United-Arab-Emirates.png" />
+    <Resource Include="Flags\United-Kingdom.png" />
+    <Resource Include="Flags\United-States-of-America.png" />
+    <Resource Include="Flags\unknown.png" />
+    <Resource Include="Flags\Uruguay.png" />
+    <Resource Include="Flags\Uzbekistan.png" />
+    <Resource Include="Flags\Vanuatu.png" />
+    <Resource Include="Flags\Vatican-City.png" />
+    <Resource Include="Flags\Venezuela.png" />
+    <Resource Include="Flags\Vietnam.png" />
+    <Resource Include="Flags\Yemen.png" />
+    <Resource Include="Flags\Zambia.png" />
+    <Resource Include="Flags\Zimbabwe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="vpn_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\account_header.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\close_page_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login_default1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Login_default.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\authForm_background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wrong_login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\password_default.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\New Project.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error_image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login_active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ConnectButtonStatus_Connected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\scale.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Лого шапка.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\TrayToggle_Connected.png" />
+    <Resource Include="Images\TrayToggle_Connecting.png" />
+    <Resource Include="Images\TrayToggle_Disconnected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\TrayCloseMain.png" />
+    <Resource Include="Images\TrayOpenMain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ConnectedIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\overlay_map %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CloseApp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\HideApp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ConnectButtonStatus_Disabled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ConnectButtonStatus_Connecting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\logo3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Wave.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Disconnected1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\disconnected.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\disconnected1.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Connected.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Connecting.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\disabled.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\big_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\loader.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\loader1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\loader2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\805.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\25.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\25 %281%29.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\fon.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6 %28x86 и x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\info.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\g3801.png" />
+    <Content Include="Images\on-button.svg" />
+    <Resource Include="Images\t1.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="VidVPN.UserControl2" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:VidVPN" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" d:DesignHeight="50"
+             d:DesignWidth="300" Background="White" mc:Ignorable="d">
+    <Grid>
+        <Path Margin="20,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"
+              Data="M0 8.4C0 3.756 3.57714 0 8 0C12.4229 0 16 3.756 16 8.4C16 14.7 8 24 8 24C8 24 0 14.7 0 8.4ZM5.14062 8.39961C5.14062 10.0556 6.42063 11.3996 7.99778 11.3996C9.57492 11.3996 10.8549 10.0556 10.8549 8.39961C10.8549 6.74361 9.57492 5.39961 7.99778 5.39961C6.42063 5.39961 5.14062 6.74361 5.14062 8.39961Z"
+              Fill="#666666" />
+        <Rectangle Width="3.2" Height="6.4" Margin="2,25,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Fill="#666666" />
+        <Rectangle Width="3.2" Height="11.2" Margin="6,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Fill="#666666" />
+        <Rectangle Width="3.2" Height="16" Margin="10,15,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Fill="#666666" />
+        <TextBlock Margin="45,13,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Montserrat" FontSize="18" FontWeight="SemiBold" Foreground="#666666">
+            Poland - Varshava
+        </TextBlock>
+    </Grid>
+</UserControl>
